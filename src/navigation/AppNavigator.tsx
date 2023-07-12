@@ -12,7 +12,7 @@ const AppNavigator = (): JSX.Element => {
   const insets = useSafeAreaInsets();
   return (
     <NavigationContainer theme={customNavigationTheme}>
-      {true ?
+      {false ?
         (
           <Stack.Navigator initialRouteName='Home' screenOptions={{
             headerShown: false
