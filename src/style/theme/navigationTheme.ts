@@ -1,6 +1,6 @@
 import {DefaultTheme} from '@react-navigation/native';
 
-const globalTheme = {
+const customNavigationTheme = {
   ...DefaultTheme,
   colors: {
     ...DefaultTheme.colors,
@@ -8,4 +8,4 @@ const globalTheme = {
   },
 };
 
-export default globalTheme;
+export default customNavigationTheme;

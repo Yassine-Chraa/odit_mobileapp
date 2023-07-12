@@ -1,10 +1,8 @@
-import { Text, View } from "react-native"
+import { TextInput } from "react-native"
 
 const CustomInput = (): JSX.Element => {
     return (
-        <View>
-            <Text>Home Screen</Text>
-        </View>
+        <TextInput />
     )
 }
 export default CustomInput;

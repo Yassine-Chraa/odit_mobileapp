@@ -3,7 +3,7 @@ import { Text, View } from "react-native"
 const HomeView = (): JSX.Element => {
     return (
         <View>
-            <Text>Home Screen</Text>
+            <Text style={{fontSize: 40,fontFamily: "Nunito-Bold"}}>Home Screen</Text>
         </View>
     )
 }

@@ -5,10 +5,6 @@ export default (
   action: {type: String; payload: User},
 ) => {
   switch (action.type) {
-    case 'Get Current User':
-      return action.payload;
-    case 'StoreUser': 
-      return action.payload
     default:
       return user;
   }

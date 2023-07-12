@@ -6,16 +6,10 @@ import {STORAGE_TYPE, getGenericPassword, setGenericPassword} from "react-native
 const UseAuthViewController = () => {
   const dispatch = useDispatch();
 
-  const login = async () => {
-    await dispatch<any>(
-      authenticate({email: 'ahmed@gmail.com', password: 'yassine1'}),
-    );
-  };
 
   useEffect(() => {}, []);
 
   return {
-    login,
   };
 };
 
