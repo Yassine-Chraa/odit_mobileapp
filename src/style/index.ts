@@ -14,7 +14,7 @@ const globalStyles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
   },
   customTextInput: {
-    marginBottom: 16,
+    
   },
   textInputLable: {
     fontFamily: 'Nunito-SemiBold',
