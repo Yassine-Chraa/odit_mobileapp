@@ -14,16 +14,19 @@ const globalStyles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
   },
   customTextInput: {
-    marginBottom: 16
+    marginBottom: 16,
   },
   textInputLable: {
     fontFamily: 'Nunito-SemiBold',
     fontSize: getFontSize('h4'),
+    textTransform: 'capitalize',
   },
   textInputplaceHolder: {
     borderBottomWidth: 2,
     paddingTop: 0,
     paddingBottom: 1,
+    paddingHorizontal: 0,
+    fontSize: getFontSize('h6')
   },
 });
 
