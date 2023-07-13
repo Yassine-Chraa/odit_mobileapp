@@ -7,19 +7,22 @@ const authStyles = StyleSheet.create({
   },
   authPoster: {
     width: '100%',
-    marginBottom: 40,
   },
   header: {
     marginTop: 56,
+    marginBottom: 40,
   },
-  description: {
+  title: {
     fontSize: getFontSize('h1'),
     fontFamily: 'Nunito-Bold',
     marginBottom: 32,
     textTransform: 'capitalize'
   },
-  body:{
-    
+  bottomText:{
+    marginTop: 16, //Modified
+    textAlign: 'center',
+    fontFamily: 'Nunito-Medium',
+    fontSize: getFontSize('h6'),
   }
 });
 
