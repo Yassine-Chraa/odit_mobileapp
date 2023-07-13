@@ -28,6 +28,17 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 0,
     fontSize: getFontSize('h6')
   },
+  confirmationInput: {
+       paddingVertical: 10,
+    paddingHorizontal: 5,
+    fontSize: 18,
+    letterSpacing: 15,
+    textAlign: 'center',
+    width: 200,
+    marginLeft:'auto',
+    marginRight:'auto',
+    marginTop:10
+  },
 });
 
 export default globalStyles;
