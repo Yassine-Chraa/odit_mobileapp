@@ -5,10 +5,13 @@ import AuthScreen from "../../components/auth/AuthScreen";
 import loginStyle from "../../style/authStyles/loginStyle";
 import globalStyles from "../../style";
 import afterStartStyles from "../../style/authStyles/afterStartStyles";
+import CustomTextInput from "../../components/auth/CustomTextInput";
+import CustomButton from "../../components/auth/CustomButton";
 
 const LoginView = ({ navigation }: any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg3.png');
-    const { largeTextColor, secondaryTextColor, primaryTextColor, buttonTextColor, actionColor, buttonBackgroundColor, additionalInfoColor } = getColors();
+    const { largeTextColor, secondaryTextColor, primaryTextColor, buttonTextColor, actionColor, buttonBackgroundColor } = getColors();
+    
     return (
         <AuthScreen image={headerBackground} imageHeight={200}>
             <View style={[authStyles.body]}>
@@ -16,29 +19,11 @@ const LoginView = ({ navigation }: any): JSX.Element => {
                 <Text style={[loginStyle.subTitle, { color: secondaryTextColor }]}>Keep growing.</Text>
             </View>
             <View style={loginStyle.form}>
-                <View style={globalStyles.customTextInput}>
-                    <Text style={[globalStyles.textInputLable, { color: largeTextColor }]}>Email</Text>
-                    <TextInput
-                        placeholder="email"
-                        placeholderTextColor={secondaryTextColor}
-                        style={[globalStyles.textInputplaceHolder,
-                        { color: secondaryTextColor, borderBottomColor: additionalInfoColor }]} />
-                </View>
-                <View style={globalStyles.customTextInput}>
-                    <Text style={[globalStyles.textInputLable, { color: largeTextColor }]}>Password</Text>
-                    <TextInput
-
-                        placeholder="password"
-                        placeholderTextColor={secondaryTextColor}
-                        secureTextEntry
-                        style={[globalStyles.textInputplaceHolder,
-                        { color: secondaryTextColor, borderBottomColor: additionalInfoColor }]} />
-                </View>
+                <CustomTextInput type="email"/>
+                <CustomTextInput type="password"/>
             </View>
             <View style={{ marginTop: 13 }}>
-                <TouchableOpacity style={[globalStyles.customButton, { backgroundColor: buttonBackgroundColor }]}>
-                    <Text style={[globalStyles.customButtonText, { color: buttonTextColor }]}>Sign Up</Text>
-                </TouchableOpacity>
+                <CustomButton type="auth" title="Log In"/>
                 <Text style={[afterStartStyles.signIn, { color: primaryTextColor }]}>
                     Don’t have an account?
                     <Text onPress={() => navigation.navigate('Login')} style={{ color: actionColor }}>  Sign Up</Text>
