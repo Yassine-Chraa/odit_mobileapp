@@ -10,7 +10,7 @@ import { Image } from "@rneui/themed";
 import ConfirmationInput from "../../components/confirmation/ConfirmationInput";
 
 
-const ConfirmationView = (): JSX.Element => {
+const ConfirmationView = ({navigation} : any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg3.png');
     const image = require('../../assets/images/confirmation_letter.png');
     const { largeTextColor, primaryTextColor,additionalInfoColor } = getColors();
@@ -35,7 +35,7 @@ const ConfirmationView = (): JSX.Element => {
                        
             </View>
             <View>
-                <CustomButton type="auth" title="Continue" action={signup} />
+                <CustomButton type="auth" title="Continue" action={() => navigation.navigate("UserGoals")}  />
                 <Text style={[authStyles.bottomText, { color: primaryTextColor }]}>
                     Don’t have an account?
                 </Text>
