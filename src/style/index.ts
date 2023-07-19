@@ -13,9 +13,7 @@ const globalStyles = StyleSheet.create({
     fontSize: getFontSize('h5'),
     fontFamily: 'Nunito-Bold',
   },
-  customTextInput: {
-    
-  },
+  customTextInput: {},
   textInputLable: {
     fontFamily: 'Nunito-SemiBold',
     fontSize: getFontSize('h4'),
@@ -26,18 +24,25 @@ const globalStyles = StyleSheet.create({
     paddingTop: 0,
     paddingBottom: 1,
     paddingHorizontal: 0,
-    fontSize: getFontSize('h6')
+    fontSize: getFontSize('h6'),
   },
-  confirmationInput: {
-       paddingVertical: 10,
-    paddingHorizontal: 5,
-    fontSize: 18,
-    letterSpacing: 15,
-    textAlign: 'center',
-    width: 200,
-    marginLeft:'auto',
-    marginRight:'auto',
-    marginTop:10
+  mainScreen: {
+    paddingHorizontal: 8,
+    paddingTop: 16, //modified
+  },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  logo: {
+    width: 74,
+    height: 57.5,
+  },
+  profile: {
+    width: 48,
+    height: 48,
+    borderRadius: 24,
   },
 });
 

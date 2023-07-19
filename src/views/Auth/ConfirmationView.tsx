@@ -4,7 +4,6 @@ import AuthScreen from "../../components/auth/AuthScreen";
 import CustomButton from "../../components/auth/CustomButton";
 import UseAuthViewController from "../../viewcontrollers/useAuthViewController";
 import confirmationStyles from "../../style/authStyles/confirmationStyles";
-import Icon from 'react-native-vector-icons/FontAwesome5';
 import authStyles from "../../style/authStyles";
 import { Image } from "@rneui/themed";
 import ConfirmationInput from "../../components/confirmation/ConfirmationInput";
