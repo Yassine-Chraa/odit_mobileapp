@@ -8,6 +8,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useSelector } from 'react-redux';
 import ISettings from '../types/ISettings';
 import TabNavigator from './TabNavigator';
+import TasksView from '../views/Tasks';
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,7 @@ const AppNavigator = (): JSX.Element => {
           }}>
             <Stack.Screen name="Tab" component={TabNavigator} />
             <Stack.Screen name="Home" component={HomeView} />
+            <Stack.Screen name="Tasks" component={TasksView} />
           </Stack.Navigator>
         ) :
         <AuthStack />

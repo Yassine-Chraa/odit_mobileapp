@@ -8,15 +8,16 @@ import { SelectList } from "react-native-dropdown-select-list";
 import React from "react";
 import { Image } from "@rneui/base";
 import authStyles from "../../style/authStyles";
+import UseAuthViewController from "../../viewcontrollers/useAuthViewController";
 
 const AppUtilization = ({ navigation }: any): JSX.Element => {
     //const dispatch = useDispatch()
     //const test = () => dispatch<any>(switchDarkMode());
     const headerBackground = require('../../assets/images/bg3.png');
-    const logo = require('../../assets/images/logo.png');
-    const { secondaryTextColor, largeTextColor } = getColors();
+    const { largeTextColor } = getColors();
     const [answer, setAnswer] = React.useState("");
   
+    const { signup } = UseAuthViewController();
   const answers = [
       {key:'1', value:'You’re part of an already existing project'},
       {key:'2', value:'Manage your own project'},
@@ -35,7 +36,7 @@ const AppUtilization = ({ navigation }: any): JSX.Element => {
                     boxStyles={userGoalsStyle.box}
                 />
             </View>
-            <CustomButton title="Continue" type="auth" action={() => navigation.navigate("AfterStart")} />
+            <CustomButton title="Continue" type="auth" action={signup} />
         </AuthScreen>
     )
 }

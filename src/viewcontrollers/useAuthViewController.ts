@@ -7,7 +7,7 @@ const UseAuthViewController = () => {
   const navigation: any = useNavigation();
 
   const signup = () => {
-    navigation.navigate('Confirmation');
+    console.log("User created!!")
   };
 
   useEffect(() => {}, []);
