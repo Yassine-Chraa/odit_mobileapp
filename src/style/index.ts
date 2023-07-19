@@ -5,7 +5,7 @@ import {getFontSize} from './theme/globalTheme';
 const globalStyles = StyleSheet.create({
   customButton: {
     paddingHorizontal: 16,
-    paddingVertical: 8,
+    paddingVertical: 10,
     alignItems: 'center',
     borderRadius: 10,
   },
