@@ -39,6 +39,16 @@ const globalStyles = StyleSheet.create({
     marginRight:'auto',
     marginTop:10
   },
+    logo: {
+    width: 100,
+    height: 50,
+    resizeMode: 'contain',
+  },
+  profileImage: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+  },
 });
 
 export default globalStyles;
