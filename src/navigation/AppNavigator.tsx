@@ -2,21 +2,18 @@ import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { darkNavigationTheme, lightNavigationTheme } from '../style/theme/navigationTheme';
-import HomeView from '../views/HomeView';
 import AuthStack from '../views/Auth';
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useSelector } from 'react-redux';
 import ISettings from '../types/ISettings';
 import TabNavigator from './TabNavigator';
-import TasksView from '../views/Tasks';
 import RoomView from '../views/Rooms';
 import RoomDetails from '../views/Rooms/RoomDetails';
+import HomeView from '../views/HomeView';
 
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = (): JSX.Element => {
-  const insets = useSafeAreaInsets();
-  const darkMode = useSelector((state: { settings: ISettings }) => state.settings.darkMode)
+  const darkMode = useSelector((state: { settings: ISettings }) => state.settings.darkMode);
   return (
     <NavigationContainer theme={darkMode?darkNavigationTheme:lightNavigationTheme}>
       {true ?
@@ -34,7 +31,7 @@ const AppNavigator = (): JSX.Element => {
         <AuthStack />
       }
 
-    </NavigationContainer>
+      </NavigationContainer>
   );
 }
 

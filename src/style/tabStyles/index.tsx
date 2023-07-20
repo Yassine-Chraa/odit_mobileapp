@@ -1,4 +1,4 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 
 interface TabStylesProps {
   width?: number;
@@ -6,14 +6,12 @@ interface TabStylesProps {
 }
 
 const tabSTyles = StyleSheet.create({
- icon: {
-    width: 25,
-    height: 25,
-
-  },
   focusedIcon: {
-    padding:10,
-    borderRadius:40
+    width: 56,
+    height: 56,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
 });
 
