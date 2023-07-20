@@ -4,6 +4,12 @@
       members: [
         { name: 'John Doe', picture: require('../assets/images/profile.png') },
         { name: 'Jane Smith', picture: require('../assets/images/profile.png') },
+           { name: 'John Doe', picture: require('../assets/images/profile.png') },
+        { name: 'Jane Smith', picture: require('../assets/images/profile.png') },
+           { name: 'John Doe', picture: require('../assets/images/profile.png') },
+        { name: 'Jane Smith', picture: require('../assets/images/profile.png') },
+           { name: 'John Doe', picture: require('../assets/images/profile.png') },
+        { name: 'Jane Smith', picture: require('../assets/images/profile.png') },
       ],
     },
     {

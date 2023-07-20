@@ -4,6 +4,7 @@ import globalStyles from "../../style";
 import { getColors } from "../../style/theme/globalTheme";
 import AddSth from "../../components/main/AddSth";
 import { rooms } from "../../data/rooms";
+import RoomMemberCard from "../../components/Room/RoomMembersCard";
 
 
 const RoomDetails = ({navigation}:any): JSX.Element => {
@@ -18,6 +19,15 @@ const RoomDetails = ({navigation}:any): JSX.Element => {
                     <View style={{marginTop:20}}>
                         <AddSth 
                             sentence="Add a new member"
+                            onPress={() => {navigation.navigate("Room")}}
+                        />
+                    </View>
+                     <View style={{marginTop:10,paddingBottom:20}}>
+                            <RoomMemberCard  members={room.members} />
+                    </View>
+                     <View style={{marginTop:20}}>
+                        <AddSth 
+                            sentence="Add a new Task"
                             onPress={() => {navigation.navigate("Room")}}
                         />
                     </View>
