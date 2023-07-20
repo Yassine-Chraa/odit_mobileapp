@@ -10,6 +10,7 @@ const ligthColors = {
   buttonTextColor: '#1D0E00',
   actionColor: '#B19609',
   additionalInfoColor: '#A2958A',
+    bordersColor:'0xFF786554',
   borderColor:'#5D4733'
 };
 const darkColors = {
@@ -21,6 +22,7 @@ const darkColors = {
   buttonTextColor: '#1D0E00',
   actionColor: '#FBE25C',
   additionalInfoColor: '#C0B8B0',
+  bordersColor:'0xFF786554',
     borderColor:'#5D4733'
 };
 const fontSizes = {
