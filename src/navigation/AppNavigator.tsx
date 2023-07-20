@@ -7,6 +7,7 @@ import AuthStack from '../views/Auth';
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { useSelector } from 'react-redux';
 import ISettings from '../types/ISettings';
+import TabNavigator from './TabNavigator';
 import TasksView from '../views/Tasks';
 
 const Stack = createNativeStackNavigator();
@@ -18,9 +19,11 @@ const AppNavigator = (): JSX.Element => {
     <NavigationContainer theme={darkMode?darkNavigationTheme:lightNavigationTheme}>
       {true ?
         (
-          <Stack.Navigator initialRouteName='Tasks' screenOptions={{
+          <Stack.Navigator initialRouteName='Tab' screenOptions={{
             headerShown: false
           }}>
+            <Stack.Screen name="Tab" component={TabNavigator} />
+            <Stack.Screen name="Home" component={HomeView} />
             <Stack.Screen name="Tasks" component={TasksView} />
           </Stack.Navigator>
         ) :
