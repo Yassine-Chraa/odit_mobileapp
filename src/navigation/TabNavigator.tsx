@@ -4,6 +4,7 @@ import Home from '../views/HomeView';
 import Notifications from '../views/NotificationView'
 import AddProject from '../views/ProjectView/AddProject'
 import TabBarIcon from '../components/navigation/TabBarIcon';
+import RoomView from '../views/Rooms';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -22,7 +23,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Notifications" component={Notifications} />
       <Tab.Screen name="AddProject" component={AddProject} />
       <Tab.Screen name="Search" component={AddProject} />
-      <Tab.Screen name="Profile" component={AddProject} />
+      <Tab.Screen name="Profile" component={RoomView} />
     </Tab.Navigator>
   );
 };

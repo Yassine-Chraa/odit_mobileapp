@@ -44,6 +44,19 @@ const globalStyles = StyleSheet.create({
     height: 48,
     borderRadius: 24,
   },
+  pageTitle: {
+    fontFamily: 'Nunito-bold',
+    fontSize: getFontSize('h3'),
+    textAlign:'center',
+    textTransform:'capitalize',
+    fontWeight:'bold',
+  },
+   sentence: {
+    fontSize: getFontSize('h4'),
+    fontFamily: 'Nunito-bold',
+    textTransform:'capitalize',
+    fontWeight:'bold',
+  },
 });
 
 export default globalStyles;
