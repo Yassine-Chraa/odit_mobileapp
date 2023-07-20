@@ -44,15 +44,18 @@ const globalStyles = StyleSheet.create({
     height: 48,
     borderRadius: 24,
   },
-    logo: {
-    width: 100,
-    height: 50,
-    resizeMode: 'contain',
+  pageTitle: {
+    fontFamily: 'Nunito-bold',
+    fontSize: getFontSize('h3'),
+    textAlign:'center',
+    textTransform:'capitalize',
+    fontWeight:'bold',
   },
-  profileImage: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
+   sentence: {
+    fontSize: getFontSize('h4'),
+    fontFamily: 'Nunito-bold',
+    textTransform:'capitalize',
+    fontWeight:'bold',
   },
 });
 

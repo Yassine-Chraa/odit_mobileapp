@@ -1,6 +1,6 @@
 import { Text, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
-import Task from "../../components/main/Task";
+import Task from "../../components/Task/Task";
 
 const TasksView = (): JSX.Element => {
     const tasks: Array<{ id: number,deadline: string, name: string }> = [
