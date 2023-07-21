@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import globalStyles from '../../style';
-import TabBarIcon from '../navigation/TabBarIcon';
 import { getColors } from '../../style/theme/globalTheme';
+import CustomIcon from './CustomIcon';
 
 interface AddSthProps {
   sentence: string;
@@ -10,12 +10,12 @@ interface AddSthProps {
 }
 
 const AddSth: React.FC<AddSthProps> = ({ sentence, onPress }) => {
-    const { largeTextColor } = getColors()
+  const { largeTextColor } = getColors()
   return (
     <View style={globalStyles.header}>
-      <Text style={[globalStyles.sentence,{color:largeTextColor}]}>{sentence}</Text>
+      <Text style={[globalStyles.sentence, { color: largeTextColor }]}>{sentence}</Text>
       <TouchableOpacity onPress={onPress}>
-        <TabBarIcon name={'addproject'}  focused={true} width={20} height={20}/>
+        <CustomIcon focused name="plusFocused" size={38} />
       </TouchableOpacity>
     </View>
   );

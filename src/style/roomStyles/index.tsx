@@ -1,14 +1,7 @@
-import {StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { getFontSize } from '../theme/globalTheme';
-import { get } from 'react-native/Libraries/TurboModule/TurboModuleRegistry';
 
 const roomStyles = StyleSheet.create({
- container: {
-    borderRadius: 6,
-    padding: 16,
-    marginTop:4,
-    elevation: 6,
-  },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -19,11 +12,11 @@ const roomStyles = StyleSheet.create({
     fontSize: getFontSize('h4'),
     fontWeight: 'bold',
   },
-    memberContainer: {
+  memberContainer: {
     marginBottom: 8,
-    paddingBottom:8,
+    paddingBottom: 8,
     width: '100%',
-    borderBottomWidth: 3/4,
+    borderBottomWidth: 3 / 4,
   },
   memberRow: {
     flexDirection: 'row',
@@ -38,7 +31,7 @@ const roomStyles = StyleSheet.create({
   memberName: {
     fontSize: getFontSize('h6'),
   },
- 
+
 });
 
 export default roomStyles;

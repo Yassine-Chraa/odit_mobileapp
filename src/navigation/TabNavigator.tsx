@@ -4,7 +4,8 @@ import Home from '../views/HomeView';
 import Notifications from '../views/NotificationView'
 import AddProject from '../views/ProjectView/AddProject'
 import TabBarIcon from '../components/navigation/TabBarIcon';
-import RoomView from '../views/Rooms';
+import RoomView from '../views/RoomView';
+import TaskView from '../views/TaskView';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -12,7 +13,7 @@ const TabNavigator = () => {
     <Tab.Navigator
       screenOptions={({route}) => ({
          tabBarIcon: ({focused}) => {
-          return <TabBarIcon name={route.name.toLowerCase()}  focused={focused}/>;
+          return <TabBarIcon name={route.name}  focused={focused}/>;
         },
         tabBarLabel:'',
         headerShown: false,
@@ -26,9 +27,7 @@ const TabNavigator = () => {
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Notifications" component={Notifications} />
       <Tab.Screen name="AddProject" component={AddProject} />
-      <Tab.Screen name="Search" component={TasksView} />
-      <Tab.Screen name="Profile" component={AddProject} />
-      <Tab.Screen name="Search" component={AddProject} />
+      <Tab.Screen name="Search" component={TaskView} />
       <Tab.Screen name="Profile" component={RoomView} />
     </Tab.Navigator>
   );

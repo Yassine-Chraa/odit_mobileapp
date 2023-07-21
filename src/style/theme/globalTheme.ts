@@ -29,6 +29,7 @@ const fontSizes = {
   h1: 36,
   h2: 32,
   h3: 28,
+  pageTitleSize: 24,
   h4: 20,
   h5: 16,
   h6: 14, //Modified,
