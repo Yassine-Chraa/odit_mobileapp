@@ -1,31 +1,47 @@
-import { Text, View } from "react-native"
+import { ScrollView, Text, TouchableOpacity, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
-import Task from "../../components/Task/Task";
+import globalStyles from "../../style";
+import { getColors } from "../../style/theme/globalTheme";
+import TaskCard from "../../components/Task/TaskCard";
+import taskStyles from "../../style/taskStyles";
+import CustomIcon from "../../components/main/CustomIcon";
 
-const TasksView = (): JSX.Element => {
-    const tasks: Array<{ id: number,deadline: string, name: string }> = [
+const TaskView = ({ navigation }: any) => {
+    const { largeTextColor, secondaryTextColor } = getColors();
+    const tasks: Array<{ deadline: string, name: string }> = [
         {
-            id: 1,
-            name: "Task1",
+            name: "user persona interviews",
+            deadline: "24/07/2023",
+        },
+        {
+            name: "user persona interviews",
+            deadline: "24/07/2023"
+        },
+        {
+            name: "user persona interviews",
             deadline: "24/07/2023"
         }
     ]
     return (
-        <View>
-            <MainScreen>
-                <View>
-                    <Text>your islamic center cms</Text>
-                    <View>
-                        <Text>To Do</Text>
-                        {
-                            tasks.map((task) => (
-                                <Task task={task} />
-                            ))
-                        }
-                    </View>
+        <MainScreen>
+            <Text style={[globalStyles.pageTitle, { color: largeTextColor }]}>your islamic center cms</Text>
+            <View style={[globalStyles.card, { marginBottom: 16 }]}>
+                <View style={taskStyles.section}>
+                    <Text style={[taskStyles.sectionText, { color: secondaryTextColor }]}>To Do</Text>
+                    <TouchableOpacity activeOpacity={0.5}>
+                        <CustomIcon focused={false} name="down" />
+                    </TouchableOpacity>
                 </View>
-            </MainScreen>
-        </View>
+                <View>
+                    {
+                        tasks.map((task, index) => (
+                            <TaskCard navigation={navigation} task={task} key={index} />
+                        ))
+                    }
+                </View>
+            </View>
+
+        </MainScreen>
     )
 }
-export default TasksView;
+export default TaskView;

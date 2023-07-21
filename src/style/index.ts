@@ -28,7 +28,7 @@ const globalStyles = StyleSheet.create({
   },
   mainScreen: {
     paddingHorizontal: 8,
-    paddingTop: 16, //modified
+    paddingTop: 16, //modified,
   },
   header: {
     flexDirection: 'row',
@@ -42,20 +42,30 @@ const globalStyles = StyleSheet.create({
   profile: {
     width: 48,
     height: 48,
-    borderRadius: 24,
   },
   pageTitle: {
-    fontFamily: 'Nunito-bold',
-    fontSize: getFontSize('h3'),
-    textAlign:'center',
-    textTransform:'capitalize',
-    fontWeight:'bold',
+    fontFamily: 'Nunito-Bold',
+    fontSize: getFontSize('pageTitleSize'),
+    textAlign: 'center',
+    textTransform: 'capitalize',
+    marginBottom: 24,
+    marginTop: 15,
   },
-   sentence: {
+  sentence: {
     fontSize: getFontSize('h4'),
-    fontFamily: 'Nunito-bold',
-    textTransform:'capitalize',
-    fontWeight:'bold',
+    fontFamily: 'Nunito-Bold',
+    textTransform: 'capitalize',
+  },
+  card: {
+    borderRadius: 5,
+    padding: 16,
+    marginTop: 4,
+    elevation: 2,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });
 

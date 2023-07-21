@@ -1,22 +1,38 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import tabSTyles from '../../style/tabStyles';
-import { SvgXml } from 'react-native-svg';
-import iconMappings from '../../assets/icons';
 import { getColors } from '../../style/theme/globalTheme';
+import CustomIcon from '../main/CustomIcon';
 interface TabBarIconProps {
   name: string;
-  focused: Boolean;
+  focused: boolean;
 }
 
 const TabBarIcon: React.FC<TabBarIconProps> = ({ name, focused }) => {
   const profile = require('../../assets/images/profile.png')
   const { buttonBackgroundColor } = getColors()
-  if (name == "profile") return <View style={[focused && tabSTyles.focusedIcon, focused && { backgroundColor: buttonBackgroundColor }]}>
-    <Image source={profile}/>
+  let iconName = "";
+  switch (name) {
+    case "Home":
+      iconName = "home"
+      break;
+    case "Notifications":
+      iconName = "bell"
+      break;
+    case "AddProject":
+      iconName = "plus"
+      break;
+    case "Search":
+      iconName = "search"
+      break;
+    default:
+      break;
+  }
+  if (name == "Profile") return <View style={[focused && tabSTyles.focusedIcon, focused && { backgroundColor: buttonBackgroundColor }]}>
+    <Image source={profile} />
   </View>
   return (
-    <SvgXml xml={focused ? iconMappings[`${name}-focused`] : iconMappings[name]} />
+    <CustomIcon focused={focused} name={focused ? iconName + "Focused" : iconName} size={48} />
   );
 };
 
