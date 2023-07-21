@@ -16,10 +16,10 @@ const SignupView = ({ navigation }: any): JSX.Element => {
         <AuthScreen image={headerBackground} imageHeight={160}>
             <Text style={[singupStyle.title, { color: largeTextColor }]}>welcome!</Text>
             <View style={singupStyle.formInputs}>
-                <CustomTextInput type="name" />
-                <CustomTextInput type="email" />
-                <CustomTextInput type="password" />
-                <CustomTextInput type="confirm password" />
+                <CustomTextInput type="name" placeholder="Enter your full name" />
+                <CustomTextInput type="email" placeholder="example@email.com" />
+                <CustomTextInput type="password" placeholder="password"/>
+                <CustomTextInput type="confirm password" placeholder="password"/>
             </View>
             <View>
                 <CustomButton type="auth" title="Continue" action={() => navigation.navigate('Confirmation')} />
