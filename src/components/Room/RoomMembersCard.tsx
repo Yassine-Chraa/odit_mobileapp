@@ -3,6 +3,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import roomStyles from '../../style/roomStyles';
 import { getColors } from '../../style/theme/globalTheme';
+import globalStyles from '../../style';
 
 interface RoomCardProps {
   members: Array<{
@@ -14,7 +15,7 @@ interface RoomCardProps {
 const RoomMemberCard: React.FC<RoomCardProps> = ({  members }) => {
     const { bordersColor,secondaryTextColor,largeTextColor } = getColors()
   return (
-    <View style={roomStyles.container}>
+    <View style={globalStyles.card}>
       <View style={roomStyles.header}>
         <Text style={[roomStyles.title,{color:secondaryTextColor}]}>All Members</Text>
       </View>

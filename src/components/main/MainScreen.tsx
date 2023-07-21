@@ -16,7 +16,7 @@ const defaultOptions: IMainScreenOptions = {
 
 const MainScreen: React.FC<MainScreenProps> = ({ children, navigation, options = defaultOptions }) => {
     return (
-        <ScrollView style={globalStyles.mainScreen}>
+        <ScrollView style={globalStyles.mainScreen} showsVerticalScrollIndicator={false}>
             {options?.showHeader ? (
                 <View style={globalStyles.header}>
                     <Image style={globalStyles.logo} source={require('../../assets/images/logo.png')} />
