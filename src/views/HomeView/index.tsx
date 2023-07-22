@@ -7,7 +7,6 @@ const HomeView = (): JSX.Element => {
         <View>
              <MainScreen>
                 <Text style={{ fontSize: 40, fontFamily: "Nunito-Bold", color: getColors().largeTextColor }}>Home Screen</Text>
-
              </MainScreen>
         </View>
     )

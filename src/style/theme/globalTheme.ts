@@ -33,6 +33,7 @@ const fontSizes = {
   h4: 20,
   h5: 16,
   h6: 14, //Modified,
+  h7: 12,
 };
 
 export const getColors = () => {
