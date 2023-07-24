@@ -65,8 +65,8 @@ const globalStyles = StyleSheet.create({
   card: {
     borderRadius: 5,
     padding: 16,
-    marginTop: 4,
-    elevation: 2,
+    elevation: 8,
+    marginVertical: 24,
   },
   row: {
     flexDirection: 'row',
