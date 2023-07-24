@@ -36,9 +36,9 @@ const TaskDetails = ({ navigation, route }: any) => {
                     <Text>Assigned Members</Text>
                     <View style={taskStyles.members}>
                         {
-                            members.map((member) => {
+                            members.map((member, index) => {
                                 return (
-                                    <Image style={{ width: 32, height: 32 }} source={member.profile} />
+                                    <Image key={index} style={{ width: 32, height: 32 }} source={member.profile} />
                                 )
                             })
                         }

@@ -13,13 +13,11 @@ const RoomView = ({ navigation }: any): JSX.Element => {
     return (
         <MainScreen>
             <Text style={[globalStyles.pageTitle, { color: largeTextColor }]}>islamic center cms</Text>
-            <View>
-                <AddSth
-                    sentence="create a new room"
-                    onPress={() => { navigation.navigate("Home") }}
-                />
-            </View>
-            <View style={{ marginTop: 10, paddingBottom: 20 }}>
+            <AddSth
+                sentence="create a new room"
+                onPress={() => { navigation.navigate("Home") }}
+            />
+            <View style={{ marginTop: 10, marginBottom: 20 }}>
                 {rooms.map((room, index) => (
                     <RoomCard key={index} title={room.title} members={room.members} navigation={navigation} />
                 ))}
