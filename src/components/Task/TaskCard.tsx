@@ -14,17 +14,17 @@ interface TaskCardProps {
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ navigation, task }) => {
-    const { largeTextColor, secondaryTextColor, bordersColor } = getColors();
+    const { largeTextColor, secondaryTextColor, borderColor, surfaceColor } = getColors();
     return (
-        <View style={taskStyles.task}>
+        <View style={[taskStyles.task]}>
             <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{task.deadline}</Text>
             <View style={taskStyles.taskBody}>
                 <Text style={[taskStyles.taskName, { color: largeTextColor }]}>{task.name}</Text>
-                <TouchableOpacity style={{ elevation: 10 }} onPress={() => navigation.navigate("TaskDetails",{task})}>
+                <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("TaskDetails",{task})}>
                     <CustomIcon focused name='arrowRight' size={33} />
                 </TouchableOpacity>
             </View>
-            <Divider color={bordersColor} width={1} />
+            <Divider color={borderColor} width={1} />
         </View>
     );
 };

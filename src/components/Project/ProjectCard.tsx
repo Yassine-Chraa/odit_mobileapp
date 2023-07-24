@@ -13,9 +13,9 @@ interface ProjectCardProps {
 const ProjectCard: React.FC<ProjectCardProps> = ({title, picture, description, navigation}) =>{
         const { surfaceColor, largeTextColor, primaryTextColor } = getColors();
         return (
-            <View style={projectStyles.container} >
-                <View style={[projectStyles.item, {backgroundColor: surfaceColor}]}>
-                    <Text style={[projectStyles.title, {color: largeTextColor}]}>{title}</Text>
+            <View style={[projectStyles.container, globalStyles.card, {backgroundColor: surfaceColor}]} >
+                <View style={projectStyles.item}>
+                    <Text onPress={()=> navigation.navigate('ProjectDetails')} style={[projectStyles.title, {color: largeTextColor}]}>{title}</Text>
                 </View>
                 <View style={projectStyles.item}>
                     <Image source={picture} resizeMode="contain" style={[projectStyles.projectImage]}/>
