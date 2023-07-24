@@ -11,6 +11,7 @@ import RoomView from '../views/RoomView';
 import RoomDetails from '../views/RoomView/RoomDetails';
 import HomeView from '../views/HomeView';
 import TaskDetails from '../views/TaskView/TaskDetails';
+import ProjectView from '../views/ProjectView';
 
 const Stack = createNativeStackNavigator();
 
@@ -29,6 +30,7 @@ const AppNavigator = (): JSX.Element => {
             <Stack.Screen name="TaskDetails" component={TaskDetails} />
             <Stack.Screen name="Rooms" component={RoomView} />
             <Stack.Screen name="RoomDetails" component={RoomDetails} />
+            <Stack.Screen name="allProjects" component={ProjectView} />
           </Stack.Navigator>
         ) :
         <AuthStack />
