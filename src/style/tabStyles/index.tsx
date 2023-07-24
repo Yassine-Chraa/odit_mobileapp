@@ -7,9 +7,9 @@ interface TabStylesProps {
 
 const tabSTyles = StyleSheet.create({
   focusedIcon: {
-    width: 56,
-    height: 56,
-    borderRadius: 40,
+    width: 48,
+    height: 48,
+    borderRadius: 24,
     justifyContent: 'center',
     alignItems: 'center'
   },
