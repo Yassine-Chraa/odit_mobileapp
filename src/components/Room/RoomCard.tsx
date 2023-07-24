@@ -15,18 +15,18 @@ interface RoomCardProps {
 }
 
 const RoomCard: React.FC<RoomCardProps> = ({ title, members, navigation }) => {
-  const { bordersColor, secondaryTextColor, largeTextColor } = getColors()
+  const { borderColor, secondaryTextColor, largeTextColor, surfaceColor } = getColors()
   return (
-    <View style={globalStyles.card}>
+    <View style={[globalStyles.card, {backgroundColor: surfaceColor}]}>
       <View style={roomStyles.header}>
         <Text style={[roomStyles.title, { color: secondaryTextColor }]}>{title}</Text>
-        <TouchableOpacity style={{ elevation: 10 }} onPress={() => navigation.navigate("RoomDetails")}>
+        <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("RoomDetails")}>
           <CustomIcon focused name='arrowRight' size={33} />
         </TouchableOpacity>
       </View>
       {members.slice(0, 3).map((member, index) => (
         <View key={index} style={[roomStyles.memberContainer]}>
-          <View style={[roomStyles.memberRow, { borderBottomColor: bordersColor }]}>
+          <View style={[roomStyles.memberRow, { borderBottomColor: borderColor }]}>
             <Image source={member.picture} style={roomStyles.memberPicture} />
             <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.name}</Text>
           </View>

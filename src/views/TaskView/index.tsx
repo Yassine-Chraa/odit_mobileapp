@@ -7,7 +7,7 @@ import taskStyles from "../../style/taskStyles";
 import CustomIcon from "../../components/main/CustomIcon";
 
 const TaskView = ({ navigation }: any) => {
-    const { largeTextColor, secondaryTextColor } = getColors();
+    const { largeTextColor, secondaryTextColor, surfaceColor } = getColors();
     const tasks: Array<{ deadline: string, name: string }> = [
         {
             name: "user persona interviews",
@@ -25,7 +25,7 @@ const TaskView = ({ navigation }: any) => {
     return (
         <MainScreen>
             <Text style={[globalStyles.pageTitle, { color: largeTextColor }]}>your islamic center cms</Text>
-            <View style={[globalStyles.card, { marginBottom: 16 }]}>
+            <View style={[globalStyles.card, { marginBottom: 16, backgroundColor: surfaceColor, elevation: 8 }]}>
                 <View style={taskStyles.section}>
                     <Text style={[taskStyles.sectionText, { color: secondaryTextColor }]}>To Do</Text>
                     <TouchableOpacity activeOpacity={0.5}>

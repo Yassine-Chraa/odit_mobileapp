@@ -11,7 +11,7 @@ const ligthColors = {
   actionColor: '#B19609',
   additionalInfoColor: '#A2958A',
   bordersColor:'0xFF786554',
-  borderColor:'#5D4733',
+  borderColor:'#C0B8B0',
   surfaceColor:'#FEFEFE'
 };
 const darkColors = {

@@ -4,17 +4,9 @@ import {getColors, getFontSize} from '../theme/globalTheme';
 const projectStyles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
         flexDirection: 'column',
         alignItems: 'center',
-        justifyContent: 'center',borderRadius: 10,
-        backgroundColor: '#FEFEFE', // If '--surface-color' is not defined, fallback to #FEFEFE
-        // shadowColor: 'rgba(48, 38, 10, 0.20)',
-        // shadowOffset: { width: 0, height: 4 },
-        // shadowRadius: 10,
-        // shadowOpacity: 1,
-        elevation: 8,
-        marginVertical: 24,
+        justifyContent: 'center',
       },
       item: {
         marginBottom: 24, // Gap between items (32px)
@@ -32,6 +24,18 @@ const projectStyles = StyleSheet.create({
         marginVertical: 0, 
         width: 400,
         height: 106,
+      },
+      sectionTitle:{
+        fontSize: getFontSize('h4'),
+        textTransform: 'capitalize',
+        fontFamily: 'Nunito',
+        fontWeight: '600',
+      },
+      sectionHeader:{
+        flex: 1,
+        flexDirection: 'row', 
+        alignItems: 'center',
+        justifyContent: 'space-between',
       }
 })
 
