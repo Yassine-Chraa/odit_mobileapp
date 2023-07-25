@@ -99,7 +99,12 @@ const globalStyles = StyleSheet.create({
     paddingTop: 0,
     marginLeft: 0,
     width: '100%',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+  },
+  modalContent: {
+    borderRadius: 16,
+    height: '95%',
+    paddingHorizontal: 8,
   },
 });
 
