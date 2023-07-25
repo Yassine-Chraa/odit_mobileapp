@@ -84,6 +84,21 @@ const globalStyles = StyleSheet.create({
     paddingBottom: 0,
     marginBottom: 0,
   },
+
+   memberItem: {
+      flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 12,
+    marginBottom: 8,
+    marginLeft:'auto',
+    marginRight:'auto',
+    borderRadius: 8,
+    width:'80%',
+    textAlign:'center'
+  },
+
 });
 
 export default globalStyles;
