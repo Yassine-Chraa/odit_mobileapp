@@ -13,6 +13,8 @@ import HomeView from '../views/HomeView';
 import TaskDetails from '../views/TaskView/TaskDetails';
 import ProjectView from '../views/ProjectView';
 import ProjectDetails from '../views/ProjectView/ProjectDetails';
+import AddRoom from '../views/RoomView/AddRoom';
+import Toast from 'react-native-toast-message';
 
 const Stack = createNativeStackNavigator();
 
@@ -31,12 +33,14 @@ const AppNavigator = (): JSX.Element => {
             <Stack.Screen name="TaskDetails" component={TaskDetails} />
             <Stack.Screen name="Rooms" component={RoomView} />
             <Stack.Screen name="RoomDetails" component={RoomDetails} />
+            <Stack.Screen name="AddRoom" component={AddRoom} />
             <Stack.Screen name="allProjects" component={ProjectView} />
             <Stack.Screen name="ProjectDetails" component={ProjectDetails} />
           </Stack.Navigator>
         ) :
         <AuthStack />
       }
+                  <Toast />
 
       </NavigationContainer>
   );
