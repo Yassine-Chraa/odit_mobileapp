@@ -15,6 +15,10 @@ const down = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" vie
 <path d="M14.5 5.50684L8 12.5068L1.5 5.50684" stroke="#695905" stroke-width="2" stroke-linecap="square"/>
 </svg>`;
 
+const arrowRight = `<svg xmlns="http://www.w3.org/2000/svg" width="11" height="16" viewBox="0 0 11 16" fill="none">
+<path d="M8.14645 9.65328L7.79289 10.0068L8.5 10.7139L8.85355 10.3604L8.14645 9.65328ZM10.5 8.00684L10.8536 8.36039L11.2071 8.00684L10.8536 7.65328L10.5 8.00684ZM8.85355 5.65328L8.5 5.29973L7.79289 6.00684L8.14645 6.36039L8.85355 5.65328ZM8.85355 10.3604L10.8536 8.36039L10.1464 7.65328L8.14645 9.65328L8.85355 10.3604ZM10.8536 7.65328L8.85355 5.65328L8.14645 6.36039L10.1464 8.36039L10.8536 7.65328ZM10.5 7.50684H4V8.50684H10.5V7.50684Z" fill="#A2958A"/>
+</svg>`;
+
 const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
 <circle cx="28" cy="28" r="28" fill="#FADC3D"/>
@@ -40,7 +44,7 @@ const searchFocused = `
 <path transform="translate(16, 16)" d="M23.2003 23.2003L16.8003 16.8003M10.4003 20.0003C5.09836 20.0003 0.800293 15.7022 0.800293 10.4003C0.800293 5.09836 5.09836 0.800293 10.4003 0.800293C15.7022 0.800293 20.0003 5.09836 20.0003 10.4003C20.0003 15.7022 15.7022 20.0003 10.4003 20.0003Z" stroke="#351900" stroke-width="1.46667"/>
 </svg>`;
 
-const arrowRight = `<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+const arrowRightFocused = `<svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
 <circle cx="17" cy="17.0068" r="16.5" fill="#FADC3D"/>
 <path transform="translate(9, 9)" fill-rule="evenodd" clip-rule="evenodd" d="M10.3536 3.65332L14.7071 8.00687L10.3536 12.3604L9.64645 11.6533L12.7929 8.50687H1.5V7.50687H12.7929L9.64645 4.36043L10.3536 3.65332Z" fill="#160B00"/>
 </svg>`;
@@ -55,10 +59,11 @@ export default {
   plus,
   search,
   down,
+  arrowRight,
   homeFocused,
   bellFocused,
   plusFocused,
   searchFocused,
-  arrowRight,
-  arrowLeft
+  arrowRightFocused,
+  arrowLeft,
 } as {[key: string]: string};

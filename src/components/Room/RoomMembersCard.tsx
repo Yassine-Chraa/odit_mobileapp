@@ -8,22 +8,22 @@ import globalStyles from '../../style';
 interface RoomCardProps {
   members: Array<{
     name: string;
-    picture: any; 
+    picture: any;
   }>;
 }
 
-const RoomMemberCard: React.FC<RoomCardProps> = ({  members }) => {
-    const { bordersColor,secondaryTextColor,largeTextColor } = getColors()
+const RoomMemberCard: React.FC<RoomCardProps> = ({ members }) => {
+  const { bordersColor, secondaryTextColor, largeTextColor, surfaceColor } = getColors()
   return (
-    <View style={globalStyles.card}>
+    <View style={[globalStyles.card, { backgroundColor: surfaceColor }]}>
       <View style={roomStyles.header}>
-        <Text style={[roomStyles.title,{color:secondaryTextColor}]}>All Members</Text>
+        <Text style={[roomStyles.title, { color: secondaryTextColor }]}>All Members</Text>
       </View>
       {members.map((member, index) => (
         <View key={index} style={[roomStyles.memberContainer]}>
-           <View style={[roomStyles.memberRow,{borderBottomColor:bordersColor}]}>
+          <View style={[roomStyles.memberRow, { borderBottomColor: bordersColor }]}>
             <Image source={member.picture} style={roomStyles.memberPicture} />
-            <Text style={[roomStyles.memberName,{color:largeTextColor}]}>{member.name}</Text>
+            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.name}</Text>
           </View>
         </View>
       ))}
