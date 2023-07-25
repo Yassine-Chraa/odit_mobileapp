@@ -16,7 +16,7 @@ const RoomView = ({ navigation }: any): JSX.Element => {
             <View>
                 <AddSth
                     sentence="create a new room"
-                    onPress={() => { navigation.navigate("AddRoom") }}
+                    onPress={() => { navigation.navigate("Home") }}
                 />
             </View>
             <View style={{ marginTop: 10, paddingBottom: 20 }}>

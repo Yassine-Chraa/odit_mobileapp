@@ -27,10 +27,10 @@ const globalStyles = StyleSheet.create({
     paddingHorizontal: 0,
     fontSize: getFontSize('h6'),
   },
-  textInputRule:{
+  textInputRule: {
     fontSize: getFontSize('h7'),
-    marginVertical:0,
-    paddingVertical:0,
+    marginVertical: 0,
+    paddingVertical: 0,
   },
   mainScreen: {
     paddingHorizontal: 8,
@@ -73,13 +73,13 @@ const globalStyles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
-  costomTextInputWithIcon:{
+  costomTextInputWithIcon: {
     paddingTop: 0,
     paddingBottom: 0,
     paddingHorizontal: 0,
     fontSize: getFontSize('h6'),
   },
-  borderBottom:{
+  borderBottom: {
     borderBottomWidth: 2,
     paddingBottom: 0,
     marginBottom: 0,
@@ -99,6 +99,23 @@ const globalStyles = StyleSheet.create({
     textAlign:'center'
   },
 
+  swipeButton: {
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    marginTop: 8,
+    width: 40,
+    height: 4.5,
+    borderRadius: 8,
+    backgroundColor: '#68B984',
+    opacity: 0.7,
+  },
+  modal: {
+    marginBottom: 0,
+    paddingTop: 0,
+    marginLeft: 0,
+    width: '100%',
+    justifyContent: 'flex-end'
+  },
 });
 
 export default globalStyles;
