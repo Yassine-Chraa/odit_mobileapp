@@ -15,7 +15,7 @@ const AddSth: React.FC<AddSthProps> = ({ sentence, onPress }) => {
     <View style={globalStyles.header}>
       <Text style={[globalStyles.sentence, { color: largeTextColor }]}>{sentence}</Text>
       <TouchableOpacity onPress={onPress}>
-        <CustomIcon focused name="plusFocused" size={38} />
+        <CustomIcon focused name="plus" size={38} />
       </TouchableOpacity>
     </View>
   );

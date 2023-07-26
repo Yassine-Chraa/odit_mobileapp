@@ -20,8 +20,8 @@ const TaskCard: React.FC<TaskCardProps> = ({ navigation, task }) => {
             <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{task.deadline}</Text>
             <View style={taskStyles.taskBody}>
                 <Text style={[taskStyles.taskName, { color: largeTextColor }]}>{task.name}</Text>
-                <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("TaskDetails",{task})}>
-                    <CustomIcon focused name='arrowRightFocused' size={33} />
+                <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("TaskDetails", { task })}>
+                    <CustomIcon focused name='arrowRight' size={33} />
                 </TouchableOpacity>
             </View>
             <Divider color={borderColor} width={1} />

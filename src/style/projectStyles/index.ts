@@ -25,17 +25,7 @@ const projectStyles = StyleSheet.create({
     width: width-64,
     borderRadius: 6,
   },
-  sectionTitle: {
-    fontSize: getFontSize('h4'),
-    textTransform: 'capitalize',
-    fontFamily: 'Nunito-SemiBold',
-  },
-  sectionHeader: {
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
+  
 });
 
 export default projectStyles;
