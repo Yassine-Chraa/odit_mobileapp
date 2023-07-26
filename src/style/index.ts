@@ -14,7 +14,7 @@ const globalStyles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
   },
   customTextInput: {
-    paddingVertical: 8,
+    marginBottom: 24,
   },
   textInputLable: {
     fontFamily: 'Nunito-SemiBold',
@@ -32,9 +32,18 @@ const globalStyles = StyleSheet.create({
     marginVertical: 0,
     paddingVertical: 0,
   },
+  customInputIcon: {
+    position: 'absolute',
+    right: 0,
+    top: '50%',
+    width: 16,
+    height: 16,
+    borderRadius: 16,
+    borderWidth: 1,
+  },
   mainScreen: {
     paddingHorizontal: 8,
-    paddingTop: 16, //modified,
+    marginTop: 12, //modified,
   },
   header: {
     flexDirection: 'row',
@@ -103,8 +112,17 @@ const globalStyles = StyleSheet.create({
   },
   modalContent: {
     borderRadius: 16,
-    height: '95%',
     paddingHorizontal: 8,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  sectionTitle: {
+    fontSize: getFontSize('h4'),
+    textTransform: 'capitalize',
+    fontFamily: 'Nunito-SemiBold',
   },
 });
 

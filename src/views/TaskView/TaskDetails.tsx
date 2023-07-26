@@ -1,4 +1,4 @@
-import { ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { Text, TouchableOpacity, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
 import { getColors } from "../../style/theme/globalTheme";
@@ -9,7 +9,7 @@ import { Image } from "@rneui/themed";
 
 
 const TaskDetails = ({ navigation, route }: any) => {
-    const { secondaryTextColor, largeTextColor } = getColors();
+    const { secondaryTextColor, largeTextColor,surfaceColor } = getColors();
     const { task } = route.params;
     const members = [
         {
@@ -20,12 +20,12 @@ const TaskDetails = ({ navigation, route }: any) => {
 
     return (
         <MainScreen navigation={navigation} options={{ showHeader: false }}>
-            <View style={[globalStyles.card, { marginBottom: 16, marginTop: 24, rowGap: 24 }]}>
+            <View style={[globalStyles.card, { marginBottom: 16, marginTop: 24, rowGap: 24, backgroundColor: surfaceColor }]}>
                 <View style={globalStyles.row}>
                     <View style={taskStyles.section}>
                         <Text style={[taskStyles.sectionText, { color: secondaryTextColor }]}>To Do</Text>
                         <TouchableOpacity activeOpacity={0.5}>
-                            <CustomIcon focused={false} name="down" />
+                            <CustomIcon name="down" />
                         </TouchableOpacity>
                     </View>
                     <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{task.deadline}</Text>

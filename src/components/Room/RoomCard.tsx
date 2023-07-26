@@ -25,7 +25,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ title, members, options = { showHea
         <View style={roomStyles.header}>
           <Text style={[roomStyles.title, { color: secondaryTextColor }]}>{title}</Text>
           <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("RoomDetails")}>
-            <CustomIcon focused name='arrowRightFocused' size={33} />
+            <CustomIcon focused name='arrowRight' size={33} />
           </TouchableOpacity>
         </View>
       ) : null}

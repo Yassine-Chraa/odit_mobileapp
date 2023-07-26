@@ -59,11 +59,11 @@ export default {
   plus,
   search,
   down,
+  arrowLeft,
   arrowRight,
   homeFocused,
   bellFocused,
   plusFocused,
   searchFocused,
   arrowRightFocused,
-  arrowLeft,
 } as {[key: string]: string};

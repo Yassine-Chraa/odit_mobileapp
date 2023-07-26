@@ -10,9 +10,11 @@ const ligthColors = {
   buttonTextColor: '#1D0E00',
   actionColor: '#B19609',
   additionalInfoColor: '#A2958A',
-  bordersColor:'0xFF786554',
-  borderColor:'#C0B8B0',
-  surfaceColor:'#FEFEFE'
+  bordersColor: '0xFF786554',
+  borderColor: '#C0B8B0',
+  surfaceColor: '#FEFEFE',
+  iconsColor: '#351900',
+  secondarySurfaceColor: '#FEFBE7'
 };
 const darkColors = {
   backgroundColor: '#1D0E00',
@@ -23,9 +25,11 @@ const darkColors = {
   buttonTextColor: '#1D0E00',
   actionColor: '#FBE25C',
   additionalInfoColor: '#C0B8B0',
-  bordersColor:'0xFF786554',
-  borderColor:'#5D4733',
-  surfaceColor:'#ffffff26'
+  bordersColor: '0xFF786554',
+  borderColor: '#5D4733',
+  surfaceColor: '#ffffff26',
+  iconsColor: '#EBE8E6',
+  secondarySurfaceColor: '#FFFFFF'
 };
 const fontSizes = {
   h1: 36,
