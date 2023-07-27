@@ -2,7 +2,6 @@ import { Text, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
-import CustomTextInputWithIcon from "../../components/auth/ConstomTextInputWithIcon";
 import CustomTextInput from "../../components/auth/CustomTextInput";
 import AddButton from "../../components/Project/AddButton";
 

@@ -5,6 +5,7 @@ import AppNavigator from './src/navigation/AppNavigator';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { getColors } from './src/style/theme/globalTheme';
 
+
 const App = (): JSX.Element => {
   return (
     <Provider store={store}>
