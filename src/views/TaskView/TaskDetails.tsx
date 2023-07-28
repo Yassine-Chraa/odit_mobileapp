@@ -19,7 +19,7 @@ const TaskDetails = ({ navigation, route }: any) => {
         }]
 
     return (
-        <MainScreen navigation={navigation} options={{ showHeader: false }}>
+        <MainScreen options={{ showHeader: false }}>
             <View style={[globalStyles.card, { marginBottom: 16, marginTop: 24, rowGap: 24, backgroundColor: surfaceColor }]}>
                 <View style={globalStyles.row}>
                     <View style={taskStyles.section}>

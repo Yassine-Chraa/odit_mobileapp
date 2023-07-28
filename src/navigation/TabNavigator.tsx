@@ -7,6 +7,8 @@ import TabBarIcon from '../components/navigation/TabBarIcon';
 import RoomView from '../views/RoomView';
 import TaskView from '../views/TaskView';
 import AddView from '../views/ProjectView/AddProject';
+import SearchView from '../views/SearchView';
+import ProfileView from '../views/ProfileView';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
@@ -23,13 +25,12 @@ const TabNavigator = () => {
           paddingTop: 16,
         }
       })}
-      initialRouteName="Notifications"
+      initialRouteName="Home"
       >
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Notifications" component={Notifications} />
-      <Tab.Screen name="AddProject" component={AddView} />
-      <Tab.Screen name="Search" component={TaskView} />
-      <Tab.Screen name="Profile" component={RoomView} />
+      <Tab.Screen name="Search" component={SearchView} />
+      <Tab.Screen name="Profile" component={ProfileView} />
     </Tab.Navigator>
   );
 };

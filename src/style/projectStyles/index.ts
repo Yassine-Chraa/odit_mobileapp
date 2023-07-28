@@ -21,7 +21,7 @@ const projectStyles = StyleSheet.create({
     fontSize: getFontSize('h6')
   },
   projectImage: {
-    height: 106*(width/312),
+    height: 120*(width/312),
     width: width-64,
     borderRadius: 6,
   },

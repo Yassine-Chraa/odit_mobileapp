@@ -5,6 +5,7 @@ import roomStyles from '../../style/roomStyles';
 import { getColors } from '../../style/theme/globalTheme';
 import CustomIcon from '../main/CustomIcon';
 import globalStyles from '../../style';
+import { useNavigation } from '@react-navigation/native';
 interface RoomCardProps {
   title?: string;
   members: Array<{
@@ -14,10 +15,10 @@ interface RoomCardProps {
   options?: {
     showHeader: boolean
   }
-  navigation: any;
 }
 
-const RoomCard: React.FC<RoomCardProps> = ({ title, members, options = { showHeader: true }, navigation }) => {
+const RoomCard: React.FC<RoomCardProps> = ({ title, members, options = { showHeader: true } }) => {
+  const navigation:any = useNavigation();
   const { borderColor, secondaryTextColor, largeTextColor, surfaceColor } = getColors()
   return (
     <View style={[globalStyles.card, { backgroundColor: surfaceColor }]}>
