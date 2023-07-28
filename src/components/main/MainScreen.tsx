@@ -3,7 +3,7 @@ import { Image } from "@rneui/themed";
 import globalStyles from "../../style";
 import CustomIcon from "./CustomIcon";
 import { useNavigation } from "@react-navigation/native";
-import { getColors, getFontSize } from "../../style/theme/globalTheme";
+import { getColors } from "../../style/theme/globalTheme";
 interface IMainScreenOptions {
     showHeader?: boolean,
     disableScrollView?: boolean,

@@ -14,7 +14,7 @@ import ProjectView from '../views/ProjectView';
 import ProjectDetails from '../views/ProjectView/ProjectDetails';
 import AddRoom from '../views/RoomView/AddRoom';
 import Toast from 'react-native-toast-message';
-import  AddProject from '../views/ProjectView/AddProject';
+import AddProject from '../views/ProjectView/AddProject';
 import ProjectMembers from '../views/ProjectView/ProjectMembers';
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +22,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigator = (): JSX.Element => {
   const darkMode = useSelector((state: { settings: ISettings }) => state.settings.darkMode);
   return (
-    <NavigationContainer theme={darkMode?darkNavigationTheme:lightNavigationTheme}>
+    <NavigationContainer theme={darkMode ? darkNavigationTheme : lightNavigationTheme}>
       {true ?
         (
           <Stack.Navigator initialRouteName='Tab' screenOptions={{
@@ -42,9 +42,9 @@ const AppNavigator = (): JSX.Element => {
         ) :
         <AuthStack />
       }
-                  <Toast />
+      <Toast />
 
-      </NavigationContainer>
+    </NavigationContainer>
   );
 }
 

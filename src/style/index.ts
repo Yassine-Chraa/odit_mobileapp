@@ -17,6 +17,7 @@ const globalStyles = StyleSheet.create({
     marginBottom: 24,
   },
   textInputLable: {
+    marginBottom: -6,
     fontFamily: 'Nunito-SemiBold',
     fontSize: getFontSize('h4'),
     textTransform: 'capitalize',
