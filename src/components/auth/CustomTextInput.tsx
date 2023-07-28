@@ -20,7 +20,7 @@ interface CustomTextInputProps {
 }
 
 const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, inputRule, icon, buttonAction, style, options = { iconRole: "none" }, value, setValue }): JSX.Element => {
-    const { largeTextColor, secondaryTextColor, additionalInfoColor, iconsColor } = getColors();
+    const { largeTextColor, secondaryTextColor, additionalInfoColor } = getColors();
 
     return (
         <View style={[globalStyles.customTextInput, { ...style }]}>
