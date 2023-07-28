@@ -13,6 +13,8 @@ import HomeView from '../views/HomeView';
 import TaskDetails from '../views/TaskView/TaskDetails';
 import ProjectView from '../views/ProjectView';
 import ProjectDetails from '../views/ProjectView/ProjectDetails';
+import AddRoom from '../views/RoomView/AddRoom';
+import Toast from 'react-native-toast-message';
 import  AddProject from '../views/ProjectView/AddProject';
 import ProjectMembers from '../views/ProjectView/ProjectMembers';
 
@@ -32,6 +34,7 @@ const AppNavigator = (): JSX.Element => {
             <Stack.Screen name="TaskDetails" component={TaskDetails} />
             <Stack.Screen name="Rooms" component={RoomView} />
             <Stack.Screen name="RoomDetails" component={RoomDetails} />
+            <Stack.Screen name="AddRoom" component={AddRoom} />
             <Stack.Screen name="AddProject" component={AddProject} />
             <Stack.Screen name="ProjectDetails" component={ProjectDetails} />
             <Stack.Screen name="ProjectMembers" component={ProjectMembers} />
@@ -40,6 +43,7 @@ const AppNavigator = (): JSX.Element => {
         ) :
         <AuthStack />
       }
+                  <Toast />
 
       </NavigationContainer>
   );
