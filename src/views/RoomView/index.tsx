@@ -15,7 +15,7 @@ const RoomView = ({ navigation }: any): JSX.Element => {
             <View style={{ marginTop: 32 }}>
                 <AddSth
                     sentence="create a new room"
-                    onPress={() => { navigation.navigate("Home") }}
+                    onPress={() => { navigation.navigate("AddRoom") }}
                 />
                 <View style={{ marginBottom: 20,marginTop: -4 }}>
                     {rooms.map((room, index) => (

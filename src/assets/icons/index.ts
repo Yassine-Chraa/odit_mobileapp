@@ -38,6 +38,11 @@ const plusFocused = `
 <path transform="translate(16, 16)" d="M12.4996 1.59961V22.3996M2.09961 11.9996H22.8996" stroke="#160B00" stroke-width="1.53846"/>
 </svg>
 `;
+const minusFocused = `
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 15 15" fill="none">
+<path d="M1 7.5H14" stroke="#1D0E00"/>
+</svg>
+`;
 const searchFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
 <circle cx="28" cy="28" r="28" fill="#FADC3D"/>
@@ -64,6 +69,7 @@ export default {
   homeFocused,
   bellFocused,
   plusFocused,
+  minusFocused,
   searchFocused,
   arrowRightFocused,
 } as {[key: string]: string};

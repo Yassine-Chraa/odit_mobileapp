@@ -24,7 +24,7 @@ const HomeView = ({ navigation }: any): JSX.Element => {
         }}>
             <View style={[globalStyles.sectionHeader, { marginTop: 16 }]}>
                 <Text style={[globalStyles.sectionTitle, { color: largeTextColor }]}>Your Projects</Text>
-                <NavigateTo action={() => navigation.navigate('projectMemebers')} />
+                <NavigateTo action={() => navigation.navigate('allProjects')} />
             </View>
             <FlatList
                 horizontal

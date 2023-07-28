@@ -9,7 +9,6 @@ import TabNavigator from './TabNavigator';
 import TasksView from '../views/TaskView';
 import RoomView from '../views/RoomView';
 import RoomDetails from '../views/RoomView/RoomDetails';
-import HomeView from '../views/HomeView';
 import TaskDetails from '../views/TaskView/TaskDetails';
 import ProjectView from '../views/ProjectView';
 import ProjectDetails from '../views/ProjectView/ProjectDetails';

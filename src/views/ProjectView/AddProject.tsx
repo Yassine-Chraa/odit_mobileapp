@@ -14,7 +14,7 @@ const AddProject = ({ navigation }: any): JSX.Element => {
             <View>
                 <CustomTextInput type="project name" placeholder="Project name" inputRule="maximum 30 characters" />
                 <CustomTextInput type="project description" placeholder="Give a detailed description about your project" inputRule="Minimum 200 characters" />
-                <CustomTextInput type="add member" placeholder="example@email.com" inputRule="" />
+                <CustomTextInput type="add member" placeholder="example@email.com"/>
                 <CustomButton title="Create Project" action={() => navigation.navigate('ProjectDetails')} />
             </View>
         </MainScreen>

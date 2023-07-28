@@ -8,16 +8,18 @@ interface CustomTextInputProps {
     placeholder: string,
     inputRule?: string,
     icon?: string,
-    buttonAction?: () => any,
+    buttonAction?: (...args: any) => any,
     style?: {
         marginBottom: number
     },
     options?: {
         iconRole: "button" | "none"
-    }
+    },
+    value?: any,
+    setValue?: (...args: any) => any
 }
 
-const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, inputRule, icon, buttonAction, style, options = { iconRole: "none" } }): JSX.Element => {
+const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, inputRule, icon, buttonAction, style, options = { iconRole: "none" }, value, setValue }): JSX.Element => {
     const { largeTextColor, secondaryTextColor, additionalInfoColor, iconsColor } = getColors();
 
     return (
@@ -25,15 +27,20 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, in
             {type ? (<Text style={[globalStyles.textInputLable, { color: largeTextColor }]}>{type}</Text>) : null}
             <View >
                 <TextInput
+                    value={value}
+                    onChangeText={setValue}
                     secureTextEntry={type == 'password'}
                     placeholder={placeholder}
                     placeholderTextColor={secondaryTextColor}
                     style={[globalStyles.textInputplaceHolder,
                     { color: secondaryTextColor, borderBottomColor: additionalInfoColor, marginBottom: inputRule ? 8 : 0 }]} />
                 {
-                    icon ? (
-                        <TouchableOpacity activeOpacity={options.iconRole == "button" ? 0.3 : 1} onPress={options.iconRole == "button" ? buttonAction : undefined} style={[globalStyles.row, globalStyles.customInputIcon, { borderWidth: options.iconRole == "button" ? 1 : 0, borderColor: iconsColor, transform: [{ translateY: inputRule ? -5 : -1 }] }]}>
-                            <CustomIcon name={icon} size={12} />
+                    icon ? options.iconRole == "button" && (
+                        <TouchableOpacity
+                            activeOpacity={0.3}
+                            onPress={options.iconRole == "button" ? buttonAction : undefined}
+                            style={[globalStyles.row, globalStyles.customInputIcon, { transform: [{ translateY: inputRule ? -8 : -4 }], justifyContent: 'center', alignItems: 'center' }]}>
+                            <CustomIcon focused name={icon} size={24} />
                         </TouchableOpacity>
                     ) : null
                 }
