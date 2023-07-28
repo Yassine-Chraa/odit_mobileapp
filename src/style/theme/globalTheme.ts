@@ -17,7 +17,7 @@ const ligthColors = {
   secondarySurfaceColor: '#FEFBE7'
 };
 const darkColors = {
-  backgroundColor: '#1D0E00',
+  backgroundColor: '#160B00',
   largeTextColor: '#EBE8E6',
   primaryTextColor: '#C0B8B0',
   secondaryTextColor: '#FDF1B4',

@@ -5,14 +5,14 @@ export const lightNavigationTheme = {
   colors: {
     ...DefaultTheme.colors,
     background: '#FEFEFE',
-    //To do : Add navigation colors
+    card:'#FEFEFE',
   },
 };
 export const darkNavigationTheme = {
   dark: true,
   colors: {
     ...DefaultTheme.colors,
-    background: '#1D0E00',
-    //To do : Add navigation colors
+    background: '#160B00',
+    card: 'rgba(255, 255, 255, 0.15)',
   },
 };
