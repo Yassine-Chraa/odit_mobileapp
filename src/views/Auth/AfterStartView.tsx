@@ -2,8 +2,8 @@ import { Text, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import AuthScreen from "../../components/auth/AuthScreen";
 import afterStartStyles from "../../style/authStyles/afterStartStyles";
-import CustomButton from "../../components/auth/CustomButton";
 import authStyles from "../../style/authStyles";
+import CustomButton from "../../components/main/CustomButton";
 
 const AfterStartView = ({ navigation }: any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg2.png');

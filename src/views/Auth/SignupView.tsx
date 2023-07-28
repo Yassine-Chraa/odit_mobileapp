@@ -2,9 +2,9 @@ import { Text, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import AuthScreen from "../../components/auth/AuthScreen";
 import CustomTextInput from "../../components/auth/CustomTextInput";
-import CustomButton from "../../components/auth/CustomButton";
 import singupStyle from "../../style/authStyles/signupStyles";
 import authStyles from "../../style/authStyles";
+import CustomButton from "../../components/main/CustomButton";
 
 const SignupView = ({ navigation }: any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg3.png');

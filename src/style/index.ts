@@ -39,7 +39,6 @@ const globalStyles = StyleSheet.create({
     width: 16,
     height: 16,
     borderRadius: 16,
-    borderWidth: 1,
   },
   mainScreen: {
     paddingHorizontal: 8,
@@ -49,6 +48,12 @@ const globalStyles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  headerTitle: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: getFontSize('h4'),
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   logo: {
     width: 74,
@@ -67,7 +72,7 @@ const globalStyles = StyleSheet.create({
     marginTop: 15,
   },
   sentence: {
-    fontSize: getFontSize('h4'),
+    fontSize: getFontSize('h4')-1,
     fontFamily: 'Nunito-Bold',
     textTransform: 'capitalize',
   },

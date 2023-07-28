@@ -11,16 +11,17 @@ const RoomView = ({ navigation }: any): JSX.Element => {
     const { largeTextColor } = getColors()
 
     return (
-        <MainScreen>
-            <Text style={[globalStyles.pageTitle, { color: largeTextColor }]}>islamic center cms</Text>
-            <AddSth
-                sentence="create a new room"
-                onPress={() => { navigation.navigate("Home") }}
-            />
-            <View style={{ marginTop: 10, marginBottom: 20 }}>
-                {rooms.map((room, index) => (
-                    <RoomCard key={index} title={room.title} members={room.members} navigation={navigation} />
-                ))}
+        <MainScreen options={{ showHeader: false, title: "islamic center cms" }}>
+            <View style={{ marginTop: 32 }}>
+                <AddSth
+                    sentence="create a new room"
+                    onPress={() => { navigation.navigate("Home") }}
+                />
+                <View style={{ marginBottom: 20,marginTop: -4 }}>
+                    {rooms.map((room, index) => (
+                        <RoomCard key={index} title={room.title} members={room.members}/>
+                    ))}
+                </View>
             </View>
         </MainScreen>
     )

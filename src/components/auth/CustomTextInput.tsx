@@ -7,14 +7,17 @@ interface CustomTextInputProps {
     type?: string,
     placeholder: string,
     inputRule?: string,
-    buttonIcon?: string,
+    icon?: string,
     buttonAction?: () => any,
     style?: {
         marginBottom: number
+    },
+    options?: {
+        iconRole: "button" | "none"
     }
 }
 
-const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, inputRule, buttonIcon, buttonAction, style }): JSX.Element => {
+const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, inputRule, icon, buttonAction, style, options = { iconRole: "none" } }): JSX.Element => {
     const { largeTextColor, secondaryTextColor, additionalInfoColor, iconsColor } = getColors();
 
     return (
@@ -28,9 +31,9 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, in
                     style={[globalStyles.textInputplaceHolder,
                     { color: secondaryTextColor, borderBottomColor: additionalInfoColor, marginBottom: inputRule ? 8 : 0 }]} />
                 {
-                    buttonIcon ? (
-                        <TouchableOpacity onPress={buttonAction} style={[globalStyles.row, globalStyles.customInputIcon, { borderColor: iconsColor, transform: [{ translateY: inputRule ? -5 : -1 }] }]}>
-                            <CustomIcon name={buttonIcon} size={12} />
+                    icon ? (
+                        <TouchableOpacity activeOpacity={options.iconRole == "button" ? 0.3 : 1} onPress={options.iconRole == "button" ? buttonAction : undefined} style={[globalStyles.row, globalStyles.customInputIcon, { borderWidth: options.iconRole == "button" ? 1 : 0, borderColor: iconsColor, transform: [{ translateY: inputRule ? -5 : -1 }] }]}>
+                            <CustomIcon name={icon} size={12} />
                         </TouchableOpacity>
                     ) : null
                 }
