@@ -37,6 +37,11 @@ const icons = (darkMode: boolean = false) => {
   }" stroke-width="2" stroke-linecap="square"/>
 </svg>`;
 
+const dot = `<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="4" cy="4.5" r="4" fill="#351900"/>
+</svg>
+`
+
   const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
 <circle cx="28" cy="28" r="28" fill="#FADC3D"/>
@@ -91,6 +96,7 @@ const icons = (darkMode: boolean = false) => {
     minusFocused,
     searchFocused,
     arrowRightFocused,
+    dot
   };
 };
 
