@@ -13,7 +13,7 @@ const ProjectView = ({ navigation }: any) => {
                 <Text style={[globalStyles.pageTitle ,{color: largeTextColor}]}>All Your Projects</Text>
                 {
                     projects.map((project, index) => (
-                        <ProjectCard key={index} title={project.title} picture={project.picture} description={project.description} navigation={navigation}/>
+                        <ProjectCard key={index} title={project.title} picture={project.picture} description={project.description} />
                     ))
                 }
             </View>
