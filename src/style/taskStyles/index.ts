@@ -23,6 +23,7 @@ const taskStyles = StyleSheet.create({
   taskName: {
     fontFamily: 'Nunito-Medium',
     fontSize: getFontSize('h5'),
+    textTransform: "capitalize"
   },
   deadline: {
     fontFamily: 'Nunito-Bold',

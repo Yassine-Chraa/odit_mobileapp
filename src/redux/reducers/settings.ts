@@ -6,7 +6,7 @@ export default (
 ) => {
   switch (action.type) {
     case 'Switch Dark Mode':
-      return {...settings, darkMode: !settings.darkMode};
+      return {...settings, darkMode: action.payload.darkMode};
     default:
       return settings;
   }

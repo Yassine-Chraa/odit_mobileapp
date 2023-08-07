@@ -31,9 +31,15 @@ const TabBarIcon: React.FC<TabBarIconProps> = ({ name, focused }) => {
   if (name == "Profile") return <View style={[focused && tabSTyles.focusedIcon, focused && { backgroundColor: buttonBackgroundColor }]}>
     <Image source={profile} />
   </View>
-  return (
-    <CustomIcon focused={focused} name={focused ? iconName + "Focused" : iconName} size={48} />
-  );
+  if(focused){
+    return (
+      <CustomIcon focused name={iconName} size={48} />
+    );
+  }else{
+    return (
+      <CustomIcon name={iconName} />
+    );
+  }
 };
 
 export default TabBarIcon;

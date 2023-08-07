@@ -1,12 +1,12 @@
 import { Text, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import AuthScreen from "../../components/auth/AuthScreen";
-import CustomButton from "../../components/auth/CustomButton";
 import UseAuthViewController from "../../viewcontrollers/useAuthViewController";
 import confirmationStyles from "../../style/authStyles/confirmationStyles";
 import authStyles from "../../style/authStyles";
 import { Image } from "@rneui/themed";
 import ConfirmationInput from "../../components/confirmation/ConfirmationInput";
+import CustomButton from "../../components/main/CustomButton";
 
 
 const ConfirmationView = ({navigation} : any): JSX.Element => {

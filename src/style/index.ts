@@ -14,9 +14,10 @@ const globalStyles = StyleSheet.create({
     fontFamily: 'Nunito-Bold',
   },
   customTextInput: {
-    paddingVertical: 8,
+    marginBottom: 24,
   },
   textInputLable: {
+    marginBottom: -6,
     fontFamily: 'Nunito-SemiBold',
     fontSize: getFontSize('h4'),
     textTransform: 'capitalize',
@@ -32,14 +33,28 @@ const globalStyles = StyleSheet.create({
     marginVertical: 0,
     paddingVertical: 0,
   },
+  customInputIcon: {
+    position: 'absolute',
+    right: 0,
+    top: '50%',
+    width: 16,
+    height: 16,
+    borderRadius: 16,
+  },
   mainScreen: {
     paddingHorizontal: 8,
-    paddingTop: 16, //modified,
+    marginTop: 12, //modified,
   },
   header: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  headerTitle: {
+    fontFamily: 'Nunito-Bold',
+    fontSize: getFontSize('h4'),
+    marginLeft: 'auto',
+    marginRight: 'auto',
   },
   logo: {
     width: 74,
@@ -58,7 +73,7 @@ const globalStyles = StyleSheet.create({
     marginTop: 15,
   },
   sentence: {
-    fontSize: getFontSize('h4'),
+    fontSize: getFontSize('h4')-1,
     fontFamily: 'Nunito-Bold',
     textTransform: 'capitalize',
   },
@@ -114,7 +129,21 @@ const globalStyles = StyleSheet.create({
     paddingTop: 0,
     marginLeft: 0,
     width: '100%',
-    justifyContent: 'flex-end'
+    justifyContent: 'flex-end',
+  },
+  modalContent: {
+    borderRadius: 16,
+    paddingHorizontal: 8,
+  },
+  sectionHeader: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+  },
+  sectionTitle: {
+    fontSize: getFontSize('h4'),
+    textTransform: 'capitalize',
+    fontFamily: 'Nunito-SemiBold',
   },
 });
 

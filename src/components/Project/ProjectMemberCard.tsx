@@ -12,7 +12,7 @@ interface ProjectMemberCardProps {
 }
 
 const ProjectMemberCard: React.FC<ProjectMemberCardProps> = ({  members }) => {
-    const { borderColor, secondaryTextColor,largeTextColor } = getColors()
+    const { borderColor,largeTextColor } = getColors()
   return (
     <View>
       {members.map((member, index) => (

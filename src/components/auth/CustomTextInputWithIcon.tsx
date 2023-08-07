@@ -46,7 +46,7 @@ const CustomTextInputWithIcon: React.FC<CustomTextInputWithIconProps> = ({
           placeholder={placeholder}
           placeholderTextColor={secondaryTextColor}
           value={member}
-          onChangeText={setMember} // Use onChangeText to handle changes
+          onChangeText={setMember}
           style={[
             globalStyles.costomTextInputWithIcon,
             {
@@ -57,7 +57,7 @@ const CustomTextInputWithIcon: React.FC<CustomTextInputWithIconProps> = ({
           ]}
         />
         <TouchableOpacity onPress={addMember} style={{ marginBottom: 20 }}>
-          <CustomIcon focused name="plusFocused" size={28} />
+          <CustomIcon name="plusFocused" size={28} />
         </TouchableOpacity>
       </View>
       <Text style={[globalStyles.textInputRule, { color: additionalInfoColor }]}>

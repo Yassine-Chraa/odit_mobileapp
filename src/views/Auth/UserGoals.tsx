@@ -1,18 +1,14 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
-import authStyles from "../../style/authStyles";
 import AuthScreen from "../../components/auth/AuthScreen";
-import { useDispatch } from "react-redux";
-import CustomButton from "../../components/auth/CustomButton";
 import userGoalsStyle from "../../style/authStyles/userGoalsStyles";
 import { SelectList } from "react-native-dropdown-select-list";
 import React from "react";
+import CustomButton from "../../components/main/CustomButton";
 
 const UserGoals = ({ navigation }: any): JSX.Element => {
-    //const dispatch = useDispatch()
-    //const test = () => dispatch<any>(switchDarkMode());
     const headerBackground = require('../../assets/images/bg3.png');
-    const { secondaryTextColor, largeTextColor } = getColors();
+    const { largeTextColor } = getColors();
     const [answer, setAnswer] = React.useState("");
   
   const answers = [

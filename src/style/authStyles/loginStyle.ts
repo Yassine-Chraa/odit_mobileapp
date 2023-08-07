@@ -13,7 +13,7 @@ const loginStyle = StyleSheet.create({
   },
   formInputs:{
     marginTop: 40,
-    marginBottom: 40
+    marginBottom: 20
   }
 });
 

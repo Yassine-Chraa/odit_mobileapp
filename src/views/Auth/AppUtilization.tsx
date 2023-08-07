@@ -1,14 +1,11 @@
 import { Text, TouchableOpacity, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import AuthScreen from "../../components/auth/AuthScreen";
-import { useDispatch } from "react-redux";
-import CustomButton from "../../components/auth/CustomButton";
 import userGoalsStyle from "../../style/authStyles/userGoalsStyles";
 import { SelectList } from "react-native-dropdown-select-list";
 import React from "react";
-import { Image } from "@rneui/base";
-import authStyles from "../../style/authStyles";
 import UseAuthViewController from "../../viewcontrollers/useAuthViewController";
+import CustomButton from "../../components/main/CustomButton";
 
 const AppUtilization = ({ navigation }: any): JSX.Element => {
     //const dispatch = useDispatch()
