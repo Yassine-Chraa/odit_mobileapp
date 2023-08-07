@@ -42,6 +42,11 @@ const dot = `<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http
 </svg>
 `
 
+const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 14.75V11.75C5 11.1977 5.44772 10.75 6 10.75H10C10.5523 10.75 11 11.1977 11 11.75V14.75M14 14.75H2C1.44772 14.75 1 14.3023 1 13.75V1.75C1 1.19772 1.44772 0.75 2 0.75H10.5858C10.851 0.75 11.1054 0.855357 11.2929 1.04289L14.7071 4.45711C14.8946 4.64464 15 4.899 15 5.16421V13.75C15 14.3023 14.5523 14.75 14 14.75Z" stroke="#160B00"/>
+</svg>
+`
+
   const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
 <circle cx="28" cy="28" r="28" fill="#FADC3D"/>
@@ -96,7 +101,8 @@ const dot = `<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http
     minusFocused,
     searchFocused,
     arrowRightFocused,
-    dot
+    dot,
+    save
   };
 };
 
