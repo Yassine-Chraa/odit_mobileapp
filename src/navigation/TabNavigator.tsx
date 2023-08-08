@@ -4,9 +4,6 @@ import Home from '../views/HomeView';
 import Notifications from '../views/NotificationView'
 import AddProject from '../views/ProjectView/AddProject'
 import TabBarIcon from '../components/navigation/TabBarIcon';
-import RoomView from '../views/RoomView';
-import TaskView from '../views/TaskView';
-import AddView from '../views/ProjectView/AddProject';
 import SearchView from '../views/SearchView';
 import ProfileView from '../views/ProfileView';
 

@@ -16,6 +16,8 @@ import AddRoom from '../views/RoomView/AddRoom';
 import Toast from 'react-native-toast-message';
 import AddProject from '../views/ProjectView/AddProject';
 import ProjectMembers from '../views/ProjectView/ProjectMembers';
+import EditProfile from '../views/ProfileView/edit';
+import privacyPolicy from '../views/ProfileView/privacyPolicy';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,6 +40,8 @@ const AppNavigator = (): JSX.Element => {
             <Stack.Screen name="ProjectDetails" component={ProjectDetails} />
             <Stack.Screen name="ProjectMembers" component={ProjectMembers} />
             <Stack.Screen name="allProjects" component={ProjectView} />
+            <Stack.Screen name="editProfile" component={EditProfile} />
+            <Stack.Screen name="privacypolicy" component={privacyPolicy} />
           </Stack.Navigator>
         ) :
         <AuthStack />
