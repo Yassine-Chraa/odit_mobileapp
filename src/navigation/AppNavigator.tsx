@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { darkNavigationTheme, lightNavigationTheme } from '../style/theme/navigationTheme';
@@ -18,14 +18,16 @@ import AddProject from '../views/ProjectView/AddProject';
 import ProjectMembers from '../views/ProjectView/ProjectMembers';
 import EditProfile from '../views/ProfileView/edit';
 import privacyPolicy from '../views/ProfileView/privacyPolicy';
+import useAppNavigatorController from '../viewcontrollers/useAppNavigatorController';
 
 const Stack = createNativeStackNavigator();
 
 const AppNavigator = (): JSX.Element => {
-  const darkMode = useSelector((state: { settings: ISettings }) => state.settings.darkMode);
+  const { darkMode, tokens } = useAppNavigatorController();
+
   return (
     <NavigationContainer theme={darkMode ? darkNavigationTheme : lightNavigationTheme}>
-      {true ?
+      {tokens ?
         (
           <Stack.Navigator initialRouteName='Tab' screenOptions={{
             headerShown: false

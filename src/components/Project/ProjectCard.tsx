@@ -5,9 +5,9 @@ import projectStyles from "../../style/projectStyles";
 import { Image } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 interface ProjectCardProps {
-    title: string;
+    title?: string;
     picture: any;
-    description: string;
+    description?: string;
     options?: {
         pressable: boolean
     }

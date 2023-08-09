@@ -3,6 +3,9 @@ const apiVersion = 'v1';
 
 const endpoints: any = {
   auth: '/auth',
+  users: '/users',
+  projects: '/projects',
+  rooms: '/rooms',
 };
 
 export const getApiUrl = (key: string) => {
