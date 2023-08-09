@@ -6,12 +6,11 @@ import { getColors } from '../../style/theme/globalTheme';
 import CustomIcon from '../main/CustomIcon';
 import globalStyles from '../../style';
 import { useNavigation } from '@react-navigation/native';
+import { IMember } from '../../types/IMember';
+import { IRoomMember } from '../../types/IRoomMember';
 interface RoomCardProps {
   title?: string;
-  members: Array<{
-    name: string;
-    picture: any;
-  }>;
+  members?: Array<IMember | IRoomMember>;
   options?: {
     showHeader: boolean
   }
@@ -30,11 +29,11 @@ const RoomCard: React.FC<RoomCardProps> = ({ title, members, options = { showHea
           </TouchableOpacity>
         </View>
       ) : null}
-      {members.slice(0, 3).map((member, index) => (
+      {members?.slice(0, 3).map((member, index) => (
         <View key={index} style={[roomStyles.memberContainer]}>
           <View style={[roomStyles.memberRow, { borderBottomColor: borderColor }]}>
-            <Image source={member.picture} style={roomStyles.memberPicture} />
-            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.name}</Text>
+            <Image source={require('../../assets/images/profile.png')} style={roomStyles.memberPicture} />
+            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{'yassine'}</Text>
           </View>
         </View>
       ))}

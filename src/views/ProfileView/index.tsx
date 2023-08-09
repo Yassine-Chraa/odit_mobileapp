@@ -1,4 +1,4 @@
-import { View, Text, Switch ,TouchableOpacity} from "react-native"
+import { View, Text, Switch, TouchableOpacity } from "react-native"
 import globalStyles from "../../style"
 import { Image } from "@rneui/themed"
 import CustomButton from "../../components/main/CustomButton"
@@ -7,18 +7,18 @@ import { getColors, getFontSize } from "../../style/theme/globalTheme"
 import profileStyles from "../../style/profileStyles"
 import useProfileController from "../../viewcontrollers/useProfileController"
 
-const ProfileView = ({navigation}:any): JSX.Element => {
-    const { switchDark,darkMode } = useProfileController();
-    const profile = require("../../assets/images/profile2.jpg")
+const ProfileView = ({ navigation }: any): JSX.Element => {
+    const { switchDark, darkMode, logout,profile } = useProfileController();
+    const userImage = require("../../assets/images/profile2.jpg")
     const { largeTextColor, actionColor } = getColors();
     return (
         <View style={{ paddingHorizontal: 16 }}>
             <View style={[{ marginTop: 20, alignItems: 'center' }]}>
                 <Text style={[profileStyles.headerTitle, { color: largeTextColor }]}>Profile</Text>
                 <View style={{ padding: 8, alignItems: 'center' }}>
-                    <Image resizeMode="contain" source={profile} style={profileStyles.profile} />
-                    <Text style={[profileStyles.username, { color: largeTextColor }]}>Taryn Durate</Text>
-                    <Text style={[profileStyles.mediumText, profileStyles.email, { color: largeTextColor }]}>taryn_durate@gmail.com</Text>
+                    <Image resizeMode="contain" source={userImage} style={profileStyles.profile} />
+                    <Text style={[profileStyles.username, { color: largeTextColor }]}>{profile.firstName+' '+profile.lastName}</Text>
+                    <Text style={[profileStyles.mediumText, profileStyles.email, { color: largeTextColor }]}>{profile.email}</Text>
                 </View>
                 <View style={{ marginVertical: 32 }}>
                     <CustomButton
@@ -47,7 +47,9 @@ const ProfileView = ({navigation}:any): JSX.Element => {
                     <CustomIcon name="rightSmall" />
                 </View>
             </View>
-            <Text style={[profileStyles.SemiBoldText, profileStyles.logout, { color: actionColor }]}>Log Out</Text>
+            <TouchableOpacity activeOpacity={0.6} onPress={logout}>
+                <Text style={[profileStyles.SemiBoldText, profileStyles.logout, { color: actionColor }]}>Log Out</Text>
+            </TouchableOpacity>
         </View >
     )
 }

@@ -1,4 +1,4 @@
-import { Text, View, FlatList, Dimensions, TouchableOpacity, ScrollView } from "react-native"
+import { Text, View, FlatList, Dimensions, TouchableOpacity } from "react-native"
 import { getColors, getFontSize } from "../../style/theme/globalTheme";
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
@@ -6,8 +6,8 @@ import NavigateTo from "../../components/Project/navigateTo";
 import CustomIcon from "../../components/main/CustomIcon";
 import homeStyles from "../../style/homeStyles";
 import { Image } from "@rneui/themed";
-import { projects } from "../../data/projects";
 import taskStyles from "../../style/taskStyles";
+import useHomeController from "../../viewcontrollers/useHomeController";
 
 const HomeView = ({ navigation }: any): JSX.Element => {
     const { largeTextColor, surfaceColor, secondaryTextColor } = getColors();
@@ -16,6 +16,8 @@ const HomeView = ({ navigation }: any): JSX.Element => {
         { projectName: "Project1", name: "task2", deadline: "07/01/2023" },
         { projectName: "Project2", name: "task2", deadline: "07/01/2023" },
     ]
+
+    const { projects } = useHomeController()
 
     return (
         <MainScreen options={{
@@ -30,31 +32,31 @@ const HomeView = ({ navigation }: any): JSX.Element => {
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={{ flexDirection: 'row', columnGap: 12, paddingRight: 6 }}
-                data={[1, 2, 3]}
+                ListHeaderComponent={() => {
+                    return (
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("AddProject")}
+                            activeOpacity={0.4}
+                            style={[globalStyles.card, homeStyles.addCard, { backgroundColor: surfaceColor }]}>
+                            <CustomIcon focused name="plus" size={40} />
+                            <Text style={[homeStyles.addCardTitle, { color: largeTextColor, }]}>Add New Project</Text>
+                        </TouchableOpacity>
+                    )
+                }}
+                data={projects}
                 renderItem={({ item }) => {
-                    if (item == 1) {
-                        return (
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate("AddProject")}
-                                activeOpacity={0.4}
-                                style={[globalStyles.card, homeStyles.addCard, { backgroundColor: surfaceColor }]}>
-                                <CustomIcon focused name="plus" size={40} />
-                                <Text style={[homeStyles.addCardTitle, { color: largeTextColor, }]}>Add New Project</Text>
-                            </TouchableOpacity>
-                        )
-                    } else {
-                        return (
-                            <TouchableOpacity
-                                onPress={() => navigation.navigate("ProjectDetails")}
-                                activeOpacity={0.6}
-                                style={[globalStyles.card, { backgroundColor: surfaceColor, padding: 0, alignItems: 'center' }]}>
-                                <Image source={projects[0].picture} style={{ width: width / 3, height: 172 }} />
-                                <View style={homeStyles.overlay}>
-                                    <Text style={homeStyles.overlayText}>islamic center cms</Text>
-                                </View>
-                            </TouchableOpacity>
-                        )
-                    }
+                    return (
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("ProjectDetails", { projectId: item.id })}
+                            activeOpacity={0.6}
+                            style={[globalStyles.card, { backgroundColor: surfaceColor, padding: 0, alignItems: 'center' }]}>
+                            <Image source={require('../../assets/images/project.jpg')} style={{ width: width / 3, height: 172 }} />
+                            <View style={homeStyles.overlay}>
+                                <Text style={homeStyles.overlayText}>{item.title}</Text>
+                            </View>
+                        </TouchableOpacity>
+                    )
+
                 }} />
 
             <View style={[globalStyles.sectionHeader, { marginTop: 16 }]}>

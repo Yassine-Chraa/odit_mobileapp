@@ -9,12 +9,13 @@ import ConfirmationInput from "../../components/confirmation/ConfirmationInput";
 import CustomButton from "../../components/main/CustomButton";
 
 
-const ConfirmationView = ({navigation} : any): JSX.Element => {
+const ConfirmationView = ({route,navigation}:any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg3.png');
     const image = require('../../assets/images/confirmation_letter.png');
-    const { largeTextColor, primaryTextColor,additionalInfoColor } = getColors();
+    const { largeTextColor, primaryTextColor,actionColor } = getColors();
 
     const { signup } = UseAuthViewController();
+    const {signupCredential} = route.params;
 
     return (
         <AuthScreen image={headerBackground} imageHeight={160}>
@@ -34,9 +35,10 @@ const ConfirmationView = ({navigation} : any): JSX.Element => {
                        
             </View>
             <View>
-                <CustomButton type="auth" title="Continue" action={() => navigation.navigate("UserGoals")}  />
+                <CustomButton type="auth" title="Continue" action={()=>signup(signupCredential)}  />
                 <Text style={[authStyles.bottomText, { color: primaryTextColor }]}>
                     Don’t have an account?
+                    <Text onPress={() => navigation.navigate('Login')} style={{ color: actionColor }}>  Sign In</Text>
                 </Text>
             </View>
         </AuthScreen >

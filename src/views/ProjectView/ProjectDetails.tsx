@@ -1,29 +1,37 @@
-import { ScrollView, Text, TouchableOpacity, View } from "react-native"
+import { useEffect } from 'react'
+import { Text, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
 import { getColors } from "../../style/theme/globalTheme";
 import ProjectCard from "../../components/Project/ProjectCard";
-import { projects } from "../../data/projects";
 import NavigateTo from "../../components/Project/navigateTo";
-import { rooms } from "../../data/rooms";
 import TaskCard from "../../components/Task/TaskCard";
 import { tasks } from "../../data/tasks";
 import RoomCard from "../../components/Room/RoomCard";
+import useProjectController from "../../viewcontrollers/useProjectController";
 
-const ProjectDetails = ({ navigation }: any) => {
+const ProjectDetails = ({ navigation, route }: any) => {
     const { largeTextColor, surfaceColor } = getColors();
-    const project = projects[0];
-
+    const { project, getProject } = useProjectController()
+    const { projectId } = route.params;
+    console.log(project.rooms)
+    useEffect(() => {
+        getProject(projectId)
+    }, [projectId])
     return (
-        <MainScreen options={{ showHeader: false, title: "Islamic Center Cms" }}>
-            <ProjectCard options={{ pressable: false }} title={project.title} picture={project.picture} description={project.description} />
+        <MainScreen options={{ showHeader: false, title: project.title }}>
+            <ProjectCard
+                options={{ pressable: false }}
+                title={project.title}
+                picture={require('../../assets/images/project.jpg')}
+                description={project.description} />
             <View style={{ marginBottom: 24 }}>
                 <View style={{ marginTop: 16 }}>
                     <View style={[globalStyles.sectionHeader]}>
                         <Text style={[globalStyles.sectionTitle, { color: largeTextColor }]}>project members</Text>
                         <NavigateTo action={() => navigation.navigate('ProjectMembers')} />
                     </View>
-                    <RoomCard options={{ showHeader: false }} members={rooms[0].members} />
+                    <RoomCard options={{ showHeader: false }} members={project.members} />
                 </View>
                 <View style={{ marginTop: 16 }}>
                     <View style={[globalStyles.sectionHeader]}>
@@ -31,8 +39,8 @@ const ProjectDetails = ({ navigation }: any) => {
                         <NavigateTo action={() => navigation.navigate('Rooms')} />
                     </View>
                     {
-                        rooms.slice(2).map((room, index) => (
-                            <RoomCard key={index} title={room.title} members={room.members} />
+                        project.rooms?.slice(0,2).map((room, index) => (
+                            <RoomCard key={index} title={room.name} members={room.members} />
                         ))
                     }
                 </View>
