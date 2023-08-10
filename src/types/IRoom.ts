@@ -1,7 +1,9 @@
-import { IRoomMember } from "./IRoomMember";
+import {IRoomMember} from './IRoomMember';
 
-export interface IRoom{
-    name: string;
-    description: string;
-    members: Array<IRoomMember>;
+export interface IRoom {
+  id?: number;
+  projectId?: number;
+  name?: string;
+  description?: string;
+  members?: Array<IRoomMember>;
 }

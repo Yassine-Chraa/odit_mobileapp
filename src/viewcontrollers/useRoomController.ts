@@ -1,22 +1,18 @@
 import {useEffect, useState} from 'react';
-import {useDispatch, useSelector} from 'react-redux';
-import {
-  createProjectAction,
-  getProjectAction,
-  sendInvitationAction,
-} from '../redux/actions/project';
-import {IProject} from '../types/IProject';
-import {useNavigation} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
+import {useDispatch, useSelector} from 'react-redux';
+import {IRoom} from '../types/IRoom';
+import {useNavigation} from '@react-navigation/native';
+import {createRoomAction} from '../redux/actions/room';
 
-const useProjectController = () => {
+const useRoomController = () => {
   const dispatch: any = useDispatch();
   const navigation: any = useNavigation();
-  const [projectRequest, setProjectRequest] = useState<IProject>({
-    isPublic: false,
-  });
+
+  const [roomRequest, setRoomRequest] = useState<IRoom>({});
   const [member, setMember] = useState('');
   const [members, setMembers] = useState<string[]>([]);
+
 
   const addMember = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,43 +34,42 @@ const useProjectController = () => {
     setMembers(updatedMembers);
   };
 
-  const createProject = async () => {
-    if (!projectRequest.description || !projectRequest.title) {
+  const createRoom = async (projectId: number) => {
+    if (!roomRequest.description || !roomRequest.name) {
       Toast.show({
         type: 'error',
         text1: "Name and description can't be empty !",
         position: 'top',
       });
     } else {
-      const data = await dispatch(createProjectAction(projectRequest));
+      const data = await dispatch(
+        createRoomAction({...roomRequest, projectId}),
+      );
+      console.log(data);
       if (data) {
         members.forEach(async member => {
-          const res = await dispatch(sendInvitationAction(data.id, member));
-          if (!res) throw 'error';
+          //Todo get memberid by email
+          //add member to room
+          //const res = await dispatch(sendInvitationAction(data.id, member));
+          //if (!res) throw 'error';
         });
-        navigation.navigate('ProjectDetails', {projectId: data.id});
+        navigation.navigate('Rooms');
       }
     }
   };
 
-  const getProject = (projectId: number) => {
-    dispatch(getProjectAction(projectId));
-  };
-  const project = useSelector((state: {project: IProject}) => state.project);
   useEffect(() => {}, []);
 
   return {
-    project,
     member,
     members,
-    projectRequest,
-    setProjectRequest,
-    createProject,
-    getProject,
-    setMember,
+    roomRequest,
     addMember,
+    setMember,
+    setRoomRequest,
     handleRemoveMember,
+    createRoom,
   };
 };
 
-export default useProjectController;
+export default useRoomController;

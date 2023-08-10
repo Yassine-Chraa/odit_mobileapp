@@ -3,18 +3,29 @@ import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
 import { getColors } from "../../style/theme/globalTheme";
 import AddSth from "../../components/main/AddSth";
-import { rooms } from "../../data/rooms";
 import RoomMemberCard from "../../components/Room/RoomMembersCard";
+import TaskForm from "../../components/Task/TaskForm";
+import useTaskController from "../../viewcontrollers/useTaskController";
+import Modal from 'react-native-modal'
+import useSectionController from "../../viewcontrollers/useSectionController";
+import { useEffect } from "react";
 
+const RoomDetails = ({ navigation, route }: any): JSX.Element => {
+    const { room } = route.params
+    const { showForm, openForm, closeForm } = useTaskController()
+    const { sections, getSections } = useSectionController()
 
-const RoomDetails = ({ navigation }: any): JSX.Element => {
-    const { largeTextColor } = getColors()
-    const room = rooms[0]
+    console.log(room)
+    useEffect(() => {
+        getSections(room.id)
+    }, [room.id])
 
     return (
-        <MainScreen>
-            <View style={{marginBottom: 24}}>
-                <Text style={[globalStyles.pageTitle, { color: largeTextColor }]}>{room.title}</Text>
+        <MainScreen options={{
+            showHeader: false,
+            title: room.name
+        }}>
+            <View style={{ marginBottom: 24 }}>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
                         sentence="Add a new member"
@@ -27,10 +38,23 @@ const RoomDetails = ({ navigation }: any): JSX.Element => {
                 <View style={{ marginTop: 20 }}>
                     <AddSth
                         sentence="Add a new Task"
-                        onPress={() => { navigation.navigate("Room") }}
+                        onPress={openForm}
                     />
                 </View>
             </View>
+            <Modal
+                style={globalStyles.modal}
+                isVisible={showForm}
+                backdropOpacity={0.7}
+                swipeDirection={["down", "up"]}
+                onSwipeMove={(v) => {
+                    if (v < 0.4) {
+                        closeForm()
+                    }
+                }}
+            >
+                <TaskForm buttonFunction={closeForm} />
+            </Modal>
         </MainScreen>
     )
 }

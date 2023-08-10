@@ -4,12 +4,11 @@ import { View, Text, Image } from 'react-native';
 import roomStyles from '../../style/roomStyles';
 import { getColors } from '../../style/theme/globalTheme';
 import globalStyles from '../../style';
+import { userProfile } from '../../data/default';
+import { IRoomMember } from '../../types/IRoomMember';
 
 interface RoomCardProps {
-  members: Array<{
-    name: string;
-    picture: any;
-  }>;
+  members: IRoomMember[];
 }
 
 const RoomMemberCard: React.FC<RoomCardProps> = ({ members }) => {
@@ -19,11 +18,11 @@ const RoomMemberCard: React.FC<RoomCardProps> = ({ members }) => {
       <View style={roomStyles.header}>
         <Text style={[roomStyles.title, { color: secondaryTextColor }]}>All Members</Text>
       </View>
-      {members.map((member, index) => (
+      {members?.map((member: IRoomMember, index) => (
         <View key={index} style={[roomStyles.memberContainer]}>
           <View style={[roomStyles.memberRow, { borderBottomColor: bordersColor }]}>
-            <Image source={member.picture} style={roomStyles.memberPicture} />
-            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.name}</Text>
+            <Image source={{ uri: userProfile }} style={roomStyles.memberPicture} />
+            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.firstName + ' ' + member.lastName}</Text>
           </View>
         </View>
       ))}

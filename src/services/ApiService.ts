@@ -6,6 +6,9 @@ const endpoints: any = {
   users: '/users',
   projects: '/projects',
   rooms: '/rooms',
+  invitations: '/invitations',
+  sections: '/sections',
+  tasks: '/tasks'
 };
 
 export const getApiUrl = (key: string) => {

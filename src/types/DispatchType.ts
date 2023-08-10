@@ -1,4 +1,4 @@
-interface DispatchType<PayloadType> {
+export interface DispatchType<PayloadType> {
   type: String;
   payload: PayloadType;
 }

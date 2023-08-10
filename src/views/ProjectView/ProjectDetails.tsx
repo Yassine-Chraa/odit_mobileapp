@@ -14,22 +14,20 @@ const ProjectDetails = ({ navigation, route }: any) => {
     const { largeTextColor, surfaceColor } = getColors();
     const { project, getProject } = useProjectController()
     const { projectId } = route.params;
-    console.log(project.rooms)
     useEffect(() => {
         getProject(projectId)
     }, [projectId])
+
     return (
-        <MainScreen options={{ showHeader: false, title: project.title }}>
+        <MainScreen options={{ showHeader: false, title: project.title }} backPath='Home'>
             <ProjectCard
                 options={{ pressable: false }}
-                title={project.title}
-                picture={require('../../assets/images/project.jpg')}
-                description={project.description} />
+                project={project} />
             <View style={{ marginBottom: 24 }}>
                 <View style={{ marginTop: 16 }}>
                     <View style={[globalStyles.sectionHeader]}>
                         <Text style={[globalStyles.sectionTitle, { color: largeTextColor }]}>project members</Text>
-                        <NavigateTo action={() => navigation.navigate('ProjectMembers')} />
+                        <NavigateTo action={() => navigation.navigate('ProjectMembers', { members: project.members })} />
                     </View>
                     <RoomCard options={{ showHeader: false }} members={project.members} />
                 </View>
@@ -39,9 +37,12 @@ const ProjectDetails = ({ navigation, route }: any) => {
                         <NavigateTo action={() => navigation.navigate('Rooms')} />
                     </View>
                     {
-                        project.rooms?.slice(0,2).map((room, index) => (
-                            <RoomCard key={index} title={room.name} members={room.members} />
-                        ))
+                        project.rooms?.slice(0, 2).map((room, index) => {
+                            return (
+                                //@ts-ignore
+                                <RoomCard key={index} id={room.id} name={room.name} members={room.members} />
+                            )
+                        })
                     }
                 </View>
                 <View style={{ marginTop: 16 }}>

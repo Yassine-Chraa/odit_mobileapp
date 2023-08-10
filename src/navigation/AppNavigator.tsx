@@ -3,8 +3,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { darkNavigationTheme, lightNavigationTheme } from '../style/theme/navigationTheme';
 import AuthStack from '../views/Auth';
-import { useSelector } from 'react-redux';
-import ISettings from '../types/ISettings';
 import TabNavigator from './TabNavigator';
 import TasksView from '../views/TaskView';
 import RoomView from '../views/RoomView';
