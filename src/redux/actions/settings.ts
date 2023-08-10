@@ -1,4 +1,5 @@
 import {Dispatch} from 'react';
+import { DispatchType } from '../../types/DispatchType';
 
 export const switchDarkMode =
   (v: boolean) =>

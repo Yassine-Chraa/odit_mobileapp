@@ -11,6 +11,7 @@ interface IMainScreenOptions {
 }
 interface MainScreenProps {
     options?: IMainScreenOptions,
+    backPath?: string | false
     children: Array<JSX.Element> | JSX.Element,
 }
 const defaultOptions: IMainScreenOptions = {
@@ -18,8 +19,8 @@ const defaultOptions: IMainScreenOptions = {
     disableScrollView: false,
 }
 
-const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOptions }) => {
-    const navigation = useNavigation();
+const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOptions, backPath = false }) => {
+    const navigation: any = useNavigation();
     const { largeTextColor } = getColors();
 
     if (options.disableScrollView) {
@@ -31,20 +32,24 @@ const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOpti
                         <Image style={globalStyles.profile} source={require('../../assets/images/profile.png')} />
                     </View>
                 ) : (
-                    <View style={[globalStyles.header,{marginTop: 4}]}>
+                    <View style={[globalStyles.header, { marginTop: 4 }]}>
                         <TouchableOpacity
                             style={{ paddingHorizontal: 8, marginTop: 4, position: 'absolute' }}
-                            onPress={() => navigation.goBack()}
+                            onPress={() => {
+                                if (backPath) navigation.navigate(backPath)
+                                else navigation.goBack()
+                            }}
                         >
                             <CustomIcon name="arrowLeft" />
                         </TouchableOpacity>
                         <Text style={[globalStyles.headerTitle, { color: largeTextColor }]}>{options.title}</Text>
                     </View>
-                )}
+                )
+                }
                 <View style={{ paddingHorizontal: 8 }}>
                     {children}
                 </View>
-            </View>
+            </View >
         )
     } else {
         return (
@@ -55,7 +60,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOpti
                         <Image style={globalStyles.profile} source={require('../../assets/images/profile.png')} />
                     </View>
                 ) : (
-                    <View style={[globalStyles.header,{marginTop: 4}]}>
+                    <View style={[globalStyles.header, { marginTop: 4 }]}>
                         <TouchableOpacity
                             style={{ paddingHorizontal: 8, marginTop: 4, position: 'absolute' }}
                             onPress={() => navigation.goBack()}

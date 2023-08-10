@@ -1,19 +1,20 @@
 import { View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
-import { rooms } from "../../data/rooms";
 import CustomTextInput from "../../components/auth/CustomTextInput";
 import MemberCard from "../../components/Project/MemberCard";
+import { IMember } from "../../types/IMember";
 
-const ProjectMembers = ({ navigation }: any) => {
-    const members = rooms[1].members
+const ProjectMembers = ({ route }: any) => {
+    const {members} = route.params
+    console.log(members)
     return (
         <MainScreen options={{ showHeader: false, title: "Project Members" }}>
             <View style={{ marginTop: 24 }}>
                 <CustomTextInput placeholder="Find Member" icon="search" />
                 {
-                    members.map((member, index) => {
+                    members.map((member:IMember, index:number) => {
                         return (
-                            <MemberCard key={index} member={{...member,role: "Member"}} />
+                            <MemberCard key={index} member={member} />
                         )
                     })
                 }

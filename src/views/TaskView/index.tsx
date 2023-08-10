@@ -1,4 +1,4 @@
-import { Dimensions, Platform, ScrollView, Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Text, TouchableOpacity, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
 import { getColors } from "../../style/theme/globalTheme";
@@ -12,7 +12,7 @@ import TaskForm from "../../components/Task/TaskForm";
 
 const TaskView = ({ navigation }: any) => {
     const { showForm, openForm, closeForm } = useTaskController()
-    const { largeTextColor, secondaryTextColor, surfaceColor } = getColors();
+    const { secondaryTextColor, surfaceColor } = getColors();
     const tasks: Array<{ deadline: string, name: string }> = [
         {
             name: "user persona interviews",
@@ -56,7 +56,7 @@ const TaskView = ({ navigation }: any) => {
                 backdropOpacity={0.7}
                 swipeDirection={["down", "up"]}
                 onSwipeMove={(v) => {
-                    if (v < 0.3) {
+                    if (v < 0.4) {
                         closeForm()
                     }
                 }}

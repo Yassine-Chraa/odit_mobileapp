@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Text, View, TouchableOpacity } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import MainScreen from "../../components/main/MainScreen";
@@ -6,35 +5,13 @@ import globalStyles from "../../style";
 import CustomTextInput from "../../components/auth/CustomTextInput";
 import CustomButton from "../../components/main/CustomButton";
 import CustomIcon from '../../components/main/CustomIcon';
-import Toast from 'react-native-toast-message';
 import useProjectController from '../../viewcontrollers/useProjectController';
 
 
 const AddProject = ({ navigation }: any): JSX.Element => {
     const { largeTextColor, buttonBackgroundColor } = getColors();
-    const [member, setMember] = useState("")
-    const [members, setMembers] = useState<String[]>([]);
 
-    const { projectRequest, setProjectRequest, createProject } = useProjectController()
-    const addMember = () => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(member)) {
-            Toast.show({
-                type: 'error',
-                text1: 'Enter a Valid Email',
-                position: 'top'
-            });
-            return;
-        }
-        setMembers([...members, member]);
-        setMember('')
-    };
-
-    const handleRemoveMember = (index: number) => {
-        const updatedMembers = [...members];
-        updatedMembers.splice(index, 1);
-        setMembers(updatedMembers);
-    };
+    const { member,members,projectRequest, setProjectRequest, createProject,setMember,addMember,handleRemoveMember } = useProjectController()
 
     return (
         <MainScreen options={{ showHeader: false }}>
