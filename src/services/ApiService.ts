@@ -1,4 +1,4 @@
-const apiUrl = 'http://192.168.1.5:8083/api/';
+const apiUrl = 'http://20.79.69.228/api/';
 const apiVersion = 'v1';
 
 const endpoints: any = {

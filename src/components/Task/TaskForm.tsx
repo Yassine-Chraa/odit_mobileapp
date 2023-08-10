@@ -45,6 +45,7 @@ const TaskForm: React.FC<TaskProps> = ({ buttonFunction }) => {
                     buttonAction={addMember}
                     value={member}
                     setValue={setMember} />
+                
                 <View>
                     {members.map((member, index) => (
                         <View key={index} style={[globalStyles.memberItem, { backgroundColor: largeTextColor }]}>
