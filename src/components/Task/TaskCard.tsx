@@ -4,13 +4,11 @@ import { getColors } from '../../style/theme/globalTheme';
 import CustomIcon from '../main/CustomIcon';
 import taskStyles from '../../style/taskStyles';
 import { Divider } from '@rneui/themed';
+import { ITask } from '../../types/ITask';
 
 interface TaskCardProps {
     navigation: any;
-    task: {
-        name: string,
-        deadline: string
-    },
+    task: ITask
 }
 
 const TaskCard: React.FC<TaskCardProps> = ({ navigation, task }) => {

@@ -7,6 +7,8 @@ export default (
   switch (action.type) {
     case 'Get Sections':
       return action.payload;
+    case 'Add Section':
+      if (sections) return [...sections, action.payload];
     default:
       return sections;
   }

@@ -1,7 +1,6 @@
 import {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import ISettings from '../types/ISettings';
-import IUser from '../types/IUser';
 import {IUserTokens} from '../types/IUserTokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {setTokens} from '../redux/actions/auth';
