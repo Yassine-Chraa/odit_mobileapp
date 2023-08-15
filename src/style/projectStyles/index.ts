@@ -16,7 +16,7 @@ const projectStyles = StyleSheet.create({
     textTransform: 'capitalize',
   },
   description: {
-    marginTop: 12,
+    marginTop: 4,
     fontFamily: 'Nunito-Medium',
     fontSize: getFontSize('h6')
   },

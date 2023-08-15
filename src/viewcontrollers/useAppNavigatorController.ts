@@ -7,7 +7,7 @@ import {setTokens} from '../redux/actions/auth';
 import axios from 'axios';
 import SplashScreen from 'react-native-splash-screen';
 
-const useAppNavigatorController = () => {
+const useAppNavigatorController = (isConnected: boolean | null) => {
   const dispatch: any = useDispatch();
 
   const darkMode = useSelector(
@@ -20,17 +20,21 @@ const useAppNavigatorController = () => {
       const refresh_token = await AsyncStorage.getItem('access_token');
       if (access_token && refresh_token) {
         dispatch(setTokens({access_token, refresh_token}));
-        axios.defaults.headers.common["authorization"] = `Bearer ${access_token}`;
+        axios.defaults.headers.common[
+          'authorization'
+        ] = `Bearer ${access_token}`;
       }
     } catch (e) {
       console.log(e);
       return false;
     }
-    SplashScreen.hide();
   };
   useEffect(() => {
     checkIfLogged();
   }, []);
+  useEffect(() => {
+    if (isConnected != null) SplashScreen.hide();
+  }, [isConnected, tokens]);
 
   return {
     darkMode,

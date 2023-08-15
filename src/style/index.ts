@@ -61,8 +61,9 @@ const globalStyles = StyleSheet.create({
     height: 57.5,
   },
   profile: {
-    width: 48,
-    height: 48,
+    width: 40,
+    height: 40,
+    borderRadius: 20
   },
   pageTitle: {
     fontFamily: 'Nunito-Bold',
@@ -132,7 +133,8 @@ const globalStyles = StyleSheet.create({
     justifyContent: 'flex-end',
   },
   modalContent: {
-    borderRadius: 16,
+    borderTopRightRadius: 16,
+    borderTopLeftRadius: 16,
     paddingHorizontal: 8,
   },
   sectionHeader: {

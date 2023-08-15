@@ -53,6 +53,7 @@ const useProjectController = () => {
           if (!res) throw 'error';
         });
         navigation.navigate('ProjectDetails', {projectId: data.id});
+        setProjectRequest({});
       }
     }
   };

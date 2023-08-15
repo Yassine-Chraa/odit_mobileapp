@@ -14,19 +14,17 @@ import CustomIcon from "../../components/main/CustomIcon";
 import TaskCard from "../../components/Task/TaskCard";
 import CustomTextInput from "../../components/auth/CustomTextInput";
 import profileStyles from "../../style/profileStyles";
-import { tasks } from "../../data/tasks";
+import Toast from "react-native-toast-message";
 
 const RoomDetails = ({ navigation, route }: any): JSX.Element => {
     const { secondaryTextColor, surfaceColor, primaryTextColor, largeTextColor } = getColors()
     const { room } = route.params
-    const { showForm, showSectionForm, openForm, sectionRequest, closeForm, setShowSectionForm, createSection, setSectionRequest } = useTaskController()
     const width = Dimensions.get('screen').width - 96;
-    const { sections, getSections } = useSectionController()
-
-    console.log(room)
+    const { sections, showForm, showSectionForm, getSections, sectionRequest, setShowSectionForm, createSection, setSectionRequest, setShowForm } = useSectionController()
     useEffect(() => {
         getSections(room.id)
-    }, [room.id])
+        console.log('ok')
+    }, [room.id,showForm])
 
     return (
         <MainScreen options={{
@@ -45,8 +43,8 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                 </View>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
-                        sentence="Add a new Task"
-                        onPress={openForm}
+                        sentence="Add new Task"
+                        onPress={() => setShowForm(true)}
                     />
                 </View>
                 <FlatList
@@ -56,15 +54,16 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                     ListFooterComponent={() => {
                         return (
                             <View style={[globalStyles.card, { width: width + 40, marginHorizontal: 8, marginBottom: 20, marginTop: 20, backgroundColor: surfaceColor }]}>
-                                <View style={taskStyles.section}>
+                                <TouchableOpacity
+                                    style={taskStyles.section}
+                                    activeOpacity={0.5}
+
+                                    onPress={() => setShowSectionForm(true)}>
                                     <Text style={[taskStyles.sectionText, { color: secondaryTextColor }]}>Add New Section</Text>
-                                    <TouchableOpacity
-                                        activeOpacity={0.5}
-                                        style={{ marginLeft: 'auto' }}
-                                        onPress={() => setShowSectionForm(true)}>
+                                    <View style={{ marginLeft: 'auto' }}>
                                         <CustomIcon focused name="plus" size={28} />
-                                    </TouchableOpacity>
-                                </View>
+                                    </View>
+                                </TouchableOpacity>
                             </View>
                         )
                     }}
@@ -79,14 +78,15 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                                 </View>
                                 <View>
                                     {
-                                        tasks.map((task, index) => (
+                                        item.tasks?.map((task, index) => (
                                             <TaskCard navigation={navigation} task={task} key={index} />
                                         ))
                                     }
                                 </View>
                             </View>
                         )
-                    }} />
+                    }}
+                />
             </View>
             <Modal
                 style={globalStyles.modal}
@@ -95,11 +95,12 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                 swipeDirection={["down", "up"]}
                 onSwipeMove={(v) => {
                     if (v < 0.4) {
-                        closeForm()
+                        setShowForm(false)
                     }
                 }}
             >
-                <TaskForm buttonFunction={closeForm} />
+                <TaskForm sections={sections} roomId={room.id} setShowForm={setShowForm} />
+                <Toast />
             </Modal>
             <Modal
                 isVisible={showSectionForm}

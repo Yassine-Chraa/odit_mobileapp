@@ -5,6 +5,7 @@ import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
 import {ISignupRequest} from '../../types/ISignupRequest';
+import { DispatchType } from '../../types/DispatchType';
 
 const authUrl = getApiUrl('auth');
 

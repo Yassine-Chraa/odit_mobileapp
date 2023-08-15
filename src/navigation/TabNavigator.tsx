@@ -6,14 +6,20 @@ import AddProject from '../views/ProjectView/AddProject'
 import TabBarIcon from '../components/navigation/TabBarIcon';
 import SearchView from '../views/SearchView';
 import ProfileView from '../views/ProfileView';
+import useProfileController from '../viewcontrollers/useProfileController';
 
 const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
+  const {profile} = useProfileController()
   return (
     <Tab.Navigator
       screenOptions={({route}) => ({
          tabBarIcon: ({focused}) => {
-          return <TabBarIcon name={route.name}  focused={focused}/>;
+          if(route.name == 'Profile'){
+            return <TabBarIcon name={route.name}  focused={focused} picture={profile?.picture}/>;
+          }else{
+            return <TabBarIcon name={route.name}  focused={focused}/>;
+          }
         },
         tabBarLabel:'',
         headerShown: false,

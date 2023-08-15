@@ -21,7 +21,7 @@ const RoomView = ({ navigation, route }: any): JSX.Element => {
                 />
                 <View style={{ marginBottom: 20, marginTop: -4 }}>
                     {rooms?.map((room: IRoom, index: number) => (
-                        <RoomCard key={index} name={room.name!} members={room.members!} />
+                        <RoomCard key={index} id={room.id} name={room.name!} members={room.members!} />
                     ))}
                 </View>
             </View>
