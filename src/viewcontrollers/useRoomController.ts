@@ -54,6 +54,7 @@ const useRoomController = () => {
           //if (!res) throw 'error';
         });
         navigation.navigate('Rooms');
+        setRoomRequest({})
       }
     }
   };

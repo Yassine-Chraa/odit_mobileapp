@@ -37,15 +37,26 @@ const icons = (darkMode: boolean = false) => {
   }" stroke-width="2" stroke-linecap="square"/>
 </svg>`;
 
-const dot = `<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const dot = `<svg width="8" height="9" viewBox="0 0 8 9" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="4" cy="4.5" r="4" fill="#351900"/>
 </svg>
-`
+`;
 
-const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M5 14.75V11.75C5 11.1977 5.44772 10.75 6 10.75H10C10.5523 10.75 11 11.1977 11 11.75V14.75M14 14.75H2C1.44772 14.75 1 14.3023 1 13.75V1.75C1 1.19772 1.44772 0.75 2 0.75H10.5858C10.851 0.75 11.1054 0.855357 11.2929 1.04289L14.7071 4.45711C14.8946 4.64464 15 4.899 15 5.16421V13.75C15 14.3023 14.5523 14.75 14 14.75Z" stroke="#160B00"/>
 </svg>
-`
+`;
+
+  const date = `
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M3.5 0V5M11.5 0V5M3 7.5H6M12 7.5H9M3 10.5H6M9 10.5H12M1.5 2.5H13.5C14.0523 2.5 14.5 2.94772 14.5 3.5V13.5C14.5 14.0523 14.0523 14.5 13.5 14.5H1.5C0.947716 14.5 0.5 14.0523 0.5 13.5V3.5C0.5 2.94772 0.947715 2.5 1.5 2.5Z" stroke="${
+    darkMode ? '#EBE8E6' : '#1D0E00'
+  }"/>
+</svg> `;
+  const camera = `
+<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M7 1.5L2 1.5M14.5 12.5L14.5 4.5C14.5 3.94772 14.0523 3.5 13.5 3.5L1.5 3.5C0.947717 3.5 0.500001 3.94772 0.500001 4.5L0.5 12.5C0.5 13.0523 0.947716 13.5 1.5 13.5L13.5 13.5C14.0523 13.5 14.5 13.0523 14.5 12.5ZM9.5 10.5C8.39543 10.5 7.5 9.60457 7.5 8.5C7.5 7.39543 8.39543 6.5 9.5 6.5C10.6046 6.5 11.5 7.39543 11.5 8.5C11.5 9.60457 10.6046 10.5 9.5 10.5Z" stroke="#1D0E00"/>
+</svg> `;
 
   const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
@@ -83,7 +94,9 @@ const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns=
 </svg>`;
 
   const arrowLeft = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 15" fill="none">
-<path d="M1.5 7.5L5.5 3.5M1.5 7.5L5.5 11.5M1.5 7.5H14" stroke="#351900"  stroke-width="1.8"/>
+<path d="M1.5 7.5L5.5 3.5M1.5 7.5L5.5 11.5M1.5 7.5H14" stroke="${
+  darkMode ? '#EBE8E6' : '#351900'
+}"  stroke-width="1.8"/>
 </svg>`;
 
   return {
@@ -92,6 +105,10 @@ const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns=
     plus,
     search,
     down,
+    camera,
+    dot,
+    save,
+    date,
     arrowLeft,
     arrowRight,
     rightSmall,
@@ -101,8 +118,6 @@ const save = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns=
     minusFocused,
     searchFocused,
     arrowRightFocused,
-    dot,
-    save
   };
 };
 

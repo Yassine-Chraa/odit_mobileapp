@@ -6,7 +6,6 @@ import { IMember } from "../../types/IMember";
 
 const ProjectMembers = ({ route }: any) => {
     const {members} = route.params
-    console.log(members)
     return (
         <MainScreen options={{ showHeader: false, title: "Project Members" }}>
             <View style={{ marginTop: 24 }}>

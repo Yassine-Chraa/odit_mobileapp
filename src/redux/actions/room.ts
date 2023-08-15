@@ -10,6 +10,7 @@ export const createRoomAction =
   (room: IRoom) => async (dispatch: Dispatch<DispatchType<String>>) => {
     try {
       const {data} = await axios.post(`${roomUrl}`, room);
+      console.log(room)
       dispatch({type: `Add Room`, payload: data});
       Toast.show({
         type: 'success',

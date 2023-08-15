@@ -9,6 +9,8 @@ export default (
       return action.payload;
     case 'Add Section':
       if (sections) return [...sections, action.payload];
+    case 'Add Task':
+      if (sections) return [...sections, action.payload];
     default:
       return sections;
   }

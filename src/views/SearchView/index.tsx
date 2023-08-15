@@ -1,20 +1,23 @@
 import MainScreen from "../../components/main/MainScreen"
-import {useState} from 'react'
-import { TextInput,StyleSheet } from 'react-native'
+import { useState } from 'react'
+import { TextInput, StyleSheet } from 'react-native'
+import useProfileController from "../../viewcontrollers/useProfileController"
+import { defaultUserPicture } from "../../data/default"
 
-const data:any = []
+const data: any = []
 
 const SearchView = (): JSX.Element => {
-      const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState([]);
+  const { profile } = useProfileController('others');
 
-  const handleSearch = (query:any) => {
+  const handleSearch = (query: any) => {
     const filteredResults = data.filter(item => item.name.toLowerCase().includes(query.toLowerCase()));
     setSearchResults(filteredResults);
   };
-    return (
-        <MainScreen>
-             <TextInput
+  return (
+    <MainScreen options={{ picture: profile.picture || defaultUserPicture, showHeader: true }}>
+      <TextInput
         style={styles.input}
         placeholder="Search..."
         onChangeText={(text) => {
@@ -23,8 +26,8 @@ const SearchView = (): JSX.Element => {
         }}
         value={searchQuery}
       />
-        </MainScreen>
-    )
+    </MainScreen>
+  )
 }
 
 const styles = StyleSheet.create({

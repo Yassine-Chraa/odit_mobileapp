@@ -10,6 +10,7 @@ const userUrl = getApiUrl('users');
 const projectUrl = getApiUrl('projects');
 const roomUrl = getApiUrl('rooms');
 const invitationUrl = getApiUrl('invitations');
+const userTaskUrl = getApiUrl('userTasks');
 
 export const getProjectsAction =
   () => async (dispatch: Dispatch<DispatchType<String>>) => {
@@ -75,11 +76,10 @@ export const getProjectAction =
         }
         rooms.data[0].members = roomMembers;
       }
-      
-     
+      const tasks = await axios.get(`${userTaskUrl}/${projectId}`);
       dispatch({
         type: `Set Project`,
-        payload: {...data, rooms: rooms.data, members: members},
+        payload: {...data, rooms: rooms.data, members: members,tasks: tasks.data},
       });
     } catch (error: any) {
       Toast.show({

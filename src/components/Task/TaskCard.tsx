@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { getColors } from '../../style/theme/globalTheme';
 import CustomIcon from '../main/CustomIcon';
@@ -15,7 +15,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ navigation, task }) => {
     const { largeTextColor, secondaryTextColor, borderColor, surfaceColor } = getColors();
     return (
         <View style={[taskStyles.task]}>
-            <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{task.deadline}</Text>
+            <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{new Date(task.deadline!).toLocaleDateString()}</Text>
             <View style={taskStyles.taskBody}>
                 <Text style={[taskStyles.taskName, { color: largeTextColor }]}>{task.name}</Text>
                 <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("TaskDetails", { task })}>

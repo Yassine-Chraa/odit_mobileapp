@@ -11,7 +11,7 @@ const SignupView = ({ navigation }: any): JSX.Element => {
     const headerBackground = require('../../assets/images/bg3.png');
     const { largeTextColor, primaryTextColor, actionColor } = getColors();
 
-    const { signupCredential, setSignupCredential, beforeSignup } = UseAuthViewController()
+    const { signupCredential, setSignupCredential, signup } = UseAuthViewController()
 
     return (
         <AuthScreen image={headerBackground} imageHeight={160}>
@@ -47,7 +47,7 @@ const SignupView = ({ navigation }: any): JSX.Element => {
                     })} />
             </View>
             <View>
-                <CustomButton type="auth" title="Continue" action={beforeSignup} />
+                <CustomButton type="auth" title="Continue" action={signup} />
                 <Text style={[authStyles.bottomText, { color: primaryTextColor }]}>
                     Don’t have an account?
                     <Text onPress={() => navigation.navigate('Login')} style={{ color: actionColor }}>  Sign Up</Text>

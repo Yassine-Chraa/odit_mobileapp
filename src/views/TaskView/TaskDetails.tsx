@@ -8,18 +8,12 @@ import { Image } from "@rneui/themed";
 
 
 
-const TaskDetails = ({ navigation, route }: any) => {
-    const { secondaryTextColor, largeTextColor,surfaceColor } = getColors();
+const TaskDetails = ({ route }: any) => {
+    const { secondaryTextColor, largeTextColor, surfaceColor } = getColors();
     const { task } = route.params;
-    const members = [
-        {
-            profile: require('../../assets/images/profile.png')
-        }, {
-            profile: require('../../assets/images/profile.png')
-        }]
 
     return (
-        <MainScreen options={{ showHeader: false }}>
+        <MainScreen options={{ showHeader: false,title: task.projectName }}>
             <View style={[globalStyles.card, { marginBottom: 16, marginTop: 24, rowGap: 24, backgroundColor: surfaceColor }]}>
                 <View style={globalStyles.row}>
                     <View style={taskStyles.section}>
@@ -28,17 +22,17 @@ const TaskDetails = ({ navigation, route }: any) => {
                             <CustomIcon name="down" />
                         </TouchableOpacity>
                     </View>
-                    <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{task.deadline}</Text>
+                    <Text style={[taskStyles.deadline, { color: secondaryTextColor }]}>{new Date(task.deadline!).toLocaleDateString()}</Text>
                 </View>
                 <Text style={[taskStyles.taskName, { color: secondaryTextColor, textTransform: 'capitalize' }]}>{task.name}</Text>
-                <Text style={[taskStyles.taskName, { color: largeTextColor, textTransform: 'capitalize' }]}>interviewing the belguim volunteer in takwa islmaic cnter </Text>
+                <Text style={[taskStyles.taskName, { color: largeTextColor, textTransform: 'capitalize' }]}>{task.description}</Text>
                 <View>
                     <Text>Assigned Members</Text>
                     <View style={taskStyles.members}>
                         {
-                            members.map((member, index) => {
+                            task.assignedMembers?.map((member:any, index:any) => {
                                 return (
-                                    <Image key={index} style={{ width: 32, height: 32 }} source={member.profile} />
+                                    <Image key={index} style={{ width: 32, height: 32,borderRadius: 16 }} source={require('../../assets/images/profile.png')} />
                                 )
                             })
                         }

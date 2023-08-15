@@ -17,6 +17,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, options = { pressabl
     if(options.pressable){
         return (
             <TouchableOpacity
+            activeOpacity={0.4}
                 onPress={() => navigation.navigate("ProjectDetails",{projectId: project.id})}
                 style={[projectStyles.container, globalStyles.card, { backgroundColor: surfaceColor }]} >
                 <Text style={[projectStyles.title, { color: largeTextColor }]}>{project.title}</Text>

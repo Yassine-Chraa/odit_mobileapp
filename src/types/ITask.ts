@@ -1,6 +1,8 @@
 export interface ITask {
+  sectionId?: string;
   name?: string;
   description?: string;
-  startDate?: string;
-  deadline?: string;
+  startDate?: Date;
+  deadline?: Date;
+  projectName?: string;
 }

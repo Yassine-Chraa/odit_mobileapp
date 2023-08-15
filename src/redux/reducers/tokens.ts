@@ -7,6 +7,8 @@ export default (
   switch (action.type) {
     case 'Set Tokens':
       return action.payload;
+    case 'Set Access Token':
+      return {...tokens,access_token:action.payload}
     default:
       return tokens;
   }

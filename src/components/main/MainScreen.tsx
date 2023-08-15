@@ -5,9 +5,10 @@ import CustomIcon from "./CustomIcon";
 import { useNavigation } from "@react-navigation/native";
 import { getColors } from "../../style/theme/globalTheme";
 interface IMainScreenOptions {
-    showHeader?: boolean,
-    disableScrollView?: boolean,
-    title?: string
+    showHeader?: boolean;
+    disableScrollView?: boolean;
+    title?: string;
+    picture?: string;
 }
 interface MainScreenProps {
     options?: IMainScreenOptions,
@@ -29,7 +30,7 @@ const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOpti
                 {options?.showHeader ? (
                     <View style={globalStyles.header}>
                         <Image style={globalStyles.logo} source={require('../../assets/images/logo.png')} />
-                        <Image style={globalStyles.profile} source={require('../../assets/images/profile.png')} />
+                        <Image style={globalStyles.profile} source={{uri: options.picture}} />
                     </View>
                 ) : (
                     <View style={[globalStyles.header, { marginTop: 4 }]}>
@@ -57,13 +58,16 @@ const MainScreen: React.FC<MainScreenProps> = ({ children, options = defaultOpti
                 {options?.showHeader ? (
                     <View style={globalStyles.header}>
                         <Image style={globalStyles.logo} source={require('../../assets/images/logo.png')} />
-                        <Image style={globalStyles.profile} source={require('../../assets/images/profile.png')} />
+                        <Image style={globalStyles.profile} source={{uri: options.picture}} />
                     </View>
                 ) : (
                     <View style={[globalStyles.header, { marginTop: 4 }]}>
                         <TouchableOpacity
                             style={{ paddingHorizontal: 8, marginTop: 4, position: 'absolute' }}
-                            onPress={() => navigation.goBack()}
+                            onPress={() => {
+                                if (backPath) navigation.navigate(backPath)
+                                else navigation.goBack()
+                            }}
                         >
                             <CustomIcon name="arrowLeft" />
                         </TouchableOpacity>

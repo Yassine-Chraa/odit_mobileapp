@@ -1,4 +1,4 @@
-const apiUrl = 'http://20.79.69.228/api/';
+const apiUrl = 'http://192.168.1.5:8083/api/'; //20.79.69.228
 const apiVersion = 'v1';
 
 const endpoints: any = {
@@ -8,7 +8,9 @@ const endpoints: any = {
   rooms: '/rooms',
   invitations: '/invitations',
   sections: '/sections',
-  tasks: '/tasks'
+  tasks: '/tasks',
+  userTasks: '/user-tasks',
+  upload: '/files',
 };
 
 export const getApiUrl = (key: string) => {

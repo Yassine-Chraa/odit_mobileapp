@@ -8,7 +8,7 @@ import { rooms } from '../../data/rooms';
 import CustomIcon from '../main/CustomIcon';
 import { useNavigation } from '@react-navigation/native';
 import { IMember } from '../../types/IMember';
-import { userProfile } from '../../data/default';
+import { defaultUserPicture } from '../../data/default';
 
 interface MemberCardProps {
     member: IMember
@@ -22,7 +22,7 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
             <View >
                 <View style={globalStyles.row}>
                     <View style={[roomStyles.memberRow, { columnGap: 10 }]}>
-                        <Image source={{ uri: userProfile }} style={{ width: 40, height: 40, borderRadius: 25 }} />
+                        <Image source={{ uri: defaultUserPicture }} style={{ width: 40, height: 40, borderRadius: 25 }} />
                         <View>
                             <Text style={[roomStyles.memberName, { color: largeTextColor, fontFamily: 'Nunito-Bold' }]}>{member.firstName + ' ' + member.lastName}</Text>
                             <Text style={[roomStyles.memberName, { color: secondaryTextColor, fontFamily: 'Nunito-SemiBold' }]}>{member.role}</Text>
