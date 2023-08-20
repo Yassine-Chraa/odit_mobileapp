@@ -57,6 +57,13 @@ const icons = (darkMode: boolean = false) => {
 <svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M7 1.5L2 1.5M14.5 12.5L14.5 4.5C14.5 3.94772 14.0523 3.5 13.5 3.5L1.5 3.5C0.947717 3.5 0.500001 3.94772 0.500001 4.5L0.5 12.5C0.5 13.0523 0.947716 13.5 1.5 13.5L13.5 13.5C14.0523 13.5 14.5 13.0523 14.5 12.5ZM9.5 10.5C8.39543 10.5 7.5 9.60457 7.5 8.5C7.5 7.39543 8.39543 6.5 9.5 6.5C10.6046 6.5 11.5 7.39543 11.5 8.5C11.5 9.60457 10.6046 10.5 9.5 10.5Z" stroke="#1D0E00"/>
 </svg> `;
+  const check = `
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path fill-rule="evenodd" clip-rule="evenodd" d="M13.4713 4.52869C13.5963 4.65371 13.6665 4.82324 13.6665 5.00002C13.6665 5.1768 13.5963 5.34634 13.4713 5.47135L7.13799 11.8047C7.01297 11.9297 6.84343 11.9999 6.66665 11.9999C6.48988 11.9999 6.32034 11.9297 6.19532 11.8047L3.19532 8.80469C3.07388 8.67895 3.00668 8.51055 3.0082 8.33575C3.00972 8.16096 3.07984 7.99375 3.20344 7.87014C3.32705 7.74654 3.49425 7.67642 3.66905 7.6749C3.84385 7.67339 4.01225 7.74058 4.13799 7.86202L6.66665 10.3907L12.5287 4.52869C12.6537 4.40371 12.8232 4.3335 13 4.3335C13.1768 4.3335 13.3463 4.40371 13.4713 4.52869Z" fill="${
+    darkMode ? '#EBE8E6' : '#351900'
+  }"/>
+</svg> 
+`;
 
   const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
@@ -95,8 +102,8 @@ const icons = (darkMode: boolean = false) => {
 
   const arrowLeft = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 15 15" fill="none">
 <path d="M1.5 7.5L5.5 3.5M1.5 7.5L5.5 11.5M1.5 7.5H14" stroke="${
-  darkMode ? '#EBE8E6' : '#351900'
-}"  stroke-width="1.8"/>
+    darkMode ? '#EBE8E6' : '#351900'
+  }"  stroke-width="1.8"/>
 </svg>`;
 
   return {
@@ -109,6 +116,7 @@ const icons = (darkMode: boolean = false) => {
     dot,
     save,
     date,
+    check,
     arrowLeft,
     arrowRight,
     rightSmall,

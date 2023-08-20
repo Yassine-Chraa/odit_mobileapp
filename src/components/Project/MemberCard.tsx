@@ -28,9 +28,6 @@ const MemberCard: React.FC<MemberCardProps> = ({ member }) => {
                             <Text style={[roomStyles.memberName, { color: secondaryTextColor, fontFamily: 'Nunito-SemiBold' }]}>{member.role}</Text>
                         </View>
                     </View>
-                    <TouchableOpacity style={{ elevation: 8 }} onPress={() => navigation.navigate("MemberDetails")}>
-                        <CustomIcon focused name='arrowRight' size={32} />
-                    </TouchableOpacity>
                 </View>
             </View>
         </View>

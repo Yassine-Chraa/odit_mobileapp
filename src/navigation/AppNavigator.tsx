@@ -24,6 +24,7 @@ import globalStyles from '../style';
 import { getColors } from '../style/theme/globalTheme';
 import { Image } from '@rneui/themed';
 import authStyles from '../style/authStyles';
+import RoomMembers from '../views/RoomView/RoomMembers';
 
 const Stack = createNativeStackNavigator();
 
@@ -45,6 +46,7 @@ const AppNavigator = (): JSX.Element => {
               <Stack.Screen name="TaskDetails" component={TaskDetails} />
               <Stack.Screen name="Rooms" component={RoomView} />
               <Stack.Screen name="RoomDetails" component={RoomDetails} />
+              <Stack.Screen name="RoomMembers" component={RoomMembers} />
               <Stack.Screen name="AddRoom" component={AddRoom} />
               <Stack.Screen name="AddProject" component={AddProject} />
               <Stack.Screen name="ProjectDetails" component={ProjectDetails} />

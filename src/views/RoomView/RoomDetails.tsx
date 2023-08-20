@@ -5,7 +5,6 @@ import { getColors, getFontSize } from "../../style/theme/globalTheme";
 import AddSth from "../../components/main/AddSth";
 import RoomMemberCard from "../../components/Room/RoomMembersCard";
 import TaskForm from "../../components/Task/TaskForm";
-import useTaskController from "../../viewcontrollers/useTaskController";
 import Modal from 'react-native-modal'
 import useSectionController from "../../viewcontrollers/useSectionController";
 import { useEffect } from "react";
@@ -23,8 +22,7 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
     const { sections, showForm, showSectionForm, getSections, sectionRequest, setShowSectionForm, createSection, setSectionRequest, setShowForm } = useSectionController()
     useEffect(() => {
         getSections(room.id)
-        console.log('ok')
-    }, [room.id,showForm])
+    }, [room.id, showForm])
 
     return (
         <MainScreen options={{
@@ -34,11 +32,11 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
             <View style={{ marginBottom: 24 }}>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
-                        sentence="Add a new member"
-                        onPress={() => { navigation.navigate("Room") }}
+                        sentence="Add new member"
+                        onPress={() => { navigation.navigate("RoomMembers", { roomId: room.id}) }}
                     />
                 </View>
-                <View style={{ marginTop: 10, paddingBottom: 20 }}>
+                <View style={{ marginTop: -4, paddingBottom: 20 }}>
                     <RoomMemberCard members={room.members} />
                 </View>
                 <View style={{ marginTop: 20 }}>

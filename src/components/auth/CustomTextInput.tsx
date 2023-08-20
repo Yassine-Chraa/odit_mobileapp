@@ -35,12 +35,16 @@ const CustomTextInput: React.FC<CustomTextInputProps> = ({ type, placeholder, in
                     style={[globalStyles.textInputplaceHolder,
                     { color: secondaryTextColor, borderBottomColor: additionalInfoColor, marginBottom: inputRule ? 8 : 0 }]} />
                 {
-                    icon ? options.iconRole == "button" && (
+                    icon ? (
                         <TouchableOpacity
                             activeOpacity={0.3}
                             onPress={options.iconRole == "button" ? buttonAction : undefined}
                             style={[globalStyles.row, globalStyles.customInputIcon, { transform: [{ translateY: inputRule ? -8 : -4 }], justifyContent: 'center', alignItems: 'center' }]}>
-                            <CustomIcon focused name={icon} size={24} />
+                            <CustomIcon
+                                focused={options.iconRole == "button"}
+                                name={icon}
+                                size={options.iconRole == 'button' ? 24 : 16}
+                            />
                         </TouchableOpacity>
                     ) : null
                 }

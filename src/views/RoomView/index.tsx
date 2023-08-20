@@ -1,4 +1,4 @@
-import { Text, View, ScrollView } from "react-native"
+import { View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import AddSth from "../../components/main/AddSth";
 import RoomCard from "../../components/Room/RoomCard";
@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 import { IProject } from "../../types/IProject";
 
 
-const RoomView = ({ navigation, route }: any): JSX.Element => {
+const RoomView = ({ navigation }: any): JSX.Element => {
     const { id, rooms } = useSelector(
         (state: { project: IProject }) => state.project,
     );
@@ -16,7 +16,7 @@ const RoomView = ({ navigation, route }: any): JSX.Element => {
         <MainScreen options={{ showHeader: false, title: "islamic center cms" }}>
             <View style={{ marginTop: 32 }}>
                 <AddSth
-                    sentence="create a new room"
+                    sentence="create new room"
                     onPress={() => { navigation.navigate("AddRoom", { projectId: id }) }}
                 />
                 <View style={{ marginBottom: 20, marginTop: -4 }}>

@@ -1,4 +1,4 @@
-import { Text, TextInput, TouchableOpacity, View } from "react-native"
+import { Text, TouchableOpacity, View } from "react-native"
 import { getColors } from "../../style/theme/globalTheme";
 import globalStyles from "../../style";
 import projectStyles from "../../style/projectStyles";
