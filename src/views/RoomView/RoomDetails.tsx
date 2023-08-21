@@ -27,13 +27,13 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
     return (
         <MainScreen options={{
             showHeader: false,
-            title: room.name
+            title: room?.name
         }}>
             <View style={{ marginBottom: 24 }}>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
                         sentence="Add new member"
-                        onPress={() => { navigation.navigate("RoomMembers", { roomId: room.id}) }}
+                        onPress={() => { navigation.navigate("RoomMembers", { roomId: room?.id,roomMembers:room?.members}) }}
                     />
                 </View>
                 <View style={{ marginTop: -4, paddingBottom: 20 }}>

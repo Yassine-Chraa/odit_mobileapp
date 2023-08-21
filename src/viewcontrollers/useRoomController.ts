@@ -3,17 +3,17 @@ import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
 import {IRoom} from '../types/IRoom';
 import {useNavigation} from '@react-navigation/native';
-import {createRoomAction} from '../redux/actions/room';
+import {addMemberAction, createRoomAction, getRoomAction} from '../redux/actions/room';
 import {IProject} from '../types/IProject';
-import {IMember} from '../types/IMember';
+import {IRoomMember} from '../types/IRoomMember';
 
-const useRoomController: (type?: 'RoomMembers' | 'default') => any = (
-  type: 'RoomMembers' | 'default' = 'default',
-) => {
+const useRoomController: (
+  type?: 'RoomMembers' | 'default',
+  roomMembers?: IRoomMember[],
+) => any = (type = 'default', roomMembers = []) => {
+  const dispatch: any = useDispatch();
+  const navigation: any = useNavigation();
   if (type == 'default') {
-    const dispatch: any = useDispatch();
-    const navigation: any = useNavigation();
-
     const [roomRequest, setRoomRequest] = useState<IRoom>({});
     const [member, setMember] = useState('');
     const [members, setMembers] = useState<string[]>([]);
@@ -77,13 +77,17 @@ const useRoomController: (type?: 'RoomMembers' | 'default') => any = (
     };
   }
   if (type == 'RoomMembers') {
-    const _members = useSelector(
+    const projectMembers = useSelector(
       (state: {project: IProject}) => state.project.members,
     );
-    const members = _members?.filter((member)=>{
-      //check if is a room member
-    })
-    const [selectedMembers, setSelectedMembers] = useState<IMember[]>([]);
+
+    const members = projectMembers?.filter(member => {
+      const temp = !roomMembers.find(roomMember => {
+        return roomMember.memberId == member.id;
+      });
+      return temp;
+    });
+    const [selectedMembers, setSelectedMembers] = useState<number[]>([]);
 
     const handleRemoveMember = (index: number) => {
       const updatedMembers = [...selectedMembers];
@@ -91,17 +95,45 @@ const useRoomController: (type?: 'RoomMembers' | 'default') => any = (
       setSelectedMembers(updatedMembers);
     };
 
-    const addMembers = () => {
-      for (let i = 0; i < selectedMembers.length; i++) {
-        //dispatch addMember
+    const addMembers = async (roomId: number) => {
+      console.log(selectedMembers);
+      const res = await dispatch(getRoomAction(roomId))
+      console.log(res)
+      if(selectedMembers.length <= 0){
+        Toast.show({
+          type: 'success',
+          text1: 'Select a member!',
+          position: 'top',
+        });
+      }else{
+        try {
+          selectedMembers.forEach(async member => {
+            const res = await dispatch(addMemberAction(roomId, member));
+            if (!res) throw 'something went wrong !';
+          });
+          const res = await dispatch(getRoomAction(roomId))
+          console.log(res)
+         navigation.navigate('RoomDetails',{room:res})
+          Toast.show({
+            type: 'success',
+            text1: 'Members added to the room successfully',
+            position: 'top',
+          });
+        } catch (error) {
+          Toast.show({
+            type: 'error',
+            text1: `something went wrong !`,
+            position: 'top',
+          });
+        }
       }
-      //if no error go back to room details
+      
     };
     return {
       members,
-      selectedMembers,
       setSelectedMembers,
       handleRemoveMember,
+      addMembers,
     };
   }
 };

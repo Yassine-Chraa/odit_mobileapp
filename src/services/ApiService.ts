@@ -11,6 +11,8 @@ const endpoints: any = {
   tasks: '/tasks',
   userTasks: '/user-tasks',
   upload: '/files',
+  refreshToken: '/auth/refresh-token',
+  roomMembers: '/room-members'
 };
 
 export const getApiUrl = (key: string) => {

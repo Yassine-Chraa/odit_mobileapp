@@ -10,22 +10,33 @@ import CustomIcon from '../main/CustomIcon';
 
 interface RoomCardProps {
   members: IRoomMember[] | IMember[];
-  type?: 'AddMember' | 'default'
+  type?: 'AddMember' | 'default';
+  setSelectedMembers: any
+  handleRemoveMember: any
 }
 
-const RoomMemberCard: React.FC<RoomCardProps> = ({ members, type = 'default' }) => {
-  
+const RoomMemberCard: React.FC<RoomCardProps> = ({ members, type = 'default', setSelectedMembers,handleRemoveMember }) => {
+
   const { bordersColor, secondaryTextColor, largeTextColor, surfaceColor } = getColors()
+  console.log(members)
   return (
     <View style={[globalStyles.card, { backgroundColor: surfaceColor }]}>
       <View style={roomStyles.header}>
         <Text style={[roomStyles.title, { color: secondaryTextColor }]}>All Members</Text>
       </View>
-      {members?.map((member, index) => {
+      {members && members?.map((member, index) => {
 
         const [checked, setChecked] = useState(false);
-        const addOrRemoveMember = (memberId: number) => {
+        const addOrRemoveMember = () => {
+          if (!checked) {
+            setSelectedMembers((prev: number[]) => {
+              return [...prev, members[index].id]
+            })
+          } else {
+            handleRemoveMember(index)
+          }
           setChecked(!checked)
+
         }
         return (
           (
@@ -37,7 +48,7 @@ const RoomMemberCard: React.FC<RoomCardProps> = ({ members, type = 'default' }) 
               {type == "AddMember" && <TouchableOpacity
                 style={[{ borderWidth: 1, borderRadius: 8, padding: 1, borderColor: secondaryTextColor }]}
                 activeOpacity={0.4}
-                onPress={() => addOrRemoveMember(member.id)}>
+                onPress={() => addOrRemoveMember()}>
                 <CustomIcon name={checked ? 'check' : 'plus'} size={14} />
               </TouchableOpacity>}
             </View>

@@ -4,7 +4,7 @@ import ISettings from '../types/ISettings';
 import {IUserTokens} from '../types/IUserTokens';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {setTokens} from '../redux/actions/auth';
-import axios from 'axios';
+import axios from '../helpers/axiosConfig';
 import SplashScreen from 'react-native-splash-screen';
 
 const useAppNavigatorController = (isConnected: boolean | null) => {

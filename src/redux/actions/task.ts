@@ -2,7 +2,7 @@ import {Dispatch} from '@reduxjs/toolkit';
 import {DispatchType} from '../../types/DispatchType';
 import {getApiUrl} from '../../services/ApiService';
 import Toast from 'react-native-toast-message';
-import axios from 'axios';
+import axios from '../../helpers/axiosConfig';
 import {ISection} from '../../types/ISection';
 import {ITask} from '../../types/ITask';
 
