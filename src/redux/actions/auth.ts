@@ -1,7 +1,7 @@
 import { IUserTokens } from './../../types/IUserTokens';
 import {Dispatch} from 'react';
 import {getApiUrl} from '../../services/ApiService';
-import axios from 'axios';
+import axios from '../../helpers/axiosConfig';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Toast from 'react-native-toast-message';
 import {ISignupRequest} from '../../types/ISignupRequest';

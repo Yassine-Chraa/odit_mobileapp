@@ -1,5 +1,5 @@
 import {Dispatch} from 'react';
-import axios from 'axios';
+import axios from '../../helpers/axiosConfig';
 import {getApiUrl} from '../../services/ApiService';
 import Toast from 'react-native-toast-message';
 import {DispatchType} from '../../types/DispatchType';

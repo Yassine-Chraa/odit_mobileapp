@@ -1,16 +1,18 @@
-import { Dispatch } from "react";
-import { IRoom } from "../../types/IRoom";
-import { DispatchType } from "../../types/DispatchType";
-import Toast from "react-native-toast-message";
-import axios from "axios";
-import { getApiUrl } from "../../services/ApiService";
+import {Dispatch} from 'react';
+import {IRoom} from '../../types/IRoom';
+import {DispatchType} from '../../types/DispatchType';
+import Toast from 'react-native-toast-message';
+import axios from '../../helpers/axiosConfig';
+import {getApiUrl} from '../../services/ApiService';
+import {IMember} from '../../types/IMember';
 
 const roomUrl = getApiUrl('rooms');
+const roomMembersUrl = getApiUrl('roomMembers');
 export const createRoomAction =
   (room: IRoom) => async (dispatch: Dispatch<DispatchType<String>>) => {
     try {
       const {data} = await axios.post(`${roomUrl}`, room);
-      console.log(room)
+      console.log(room);
       dispatch({type: `Add Room`, payload: data});
       Toast.show({
         type: 'success',
@@ -24,6 +26,28 @@ export const createRoomAction =
         text1: `something went wrong !`,
         position: 'top',
       });
+      return false;
+    }
+  };
+
+export const addMemberAction =
+  (roomId: number, memberId: number) =>
+  async (dispatch: Dispatch<DispatchType<String>>) => {
+    try {
+      const {data} = await axios.post(`${roomMembersUrl}`, {roomId, memberId});
+      console.log(data);
+      return data;
+    } catch (error: any) {
+      return false;
+    }
+  };
+
+export const getRoomAction =
+  (roomId: number) => async (dispatch: Dispatch<DispatchType<String>>) => {
+    try {
+      const {data} = await axios.get(`${roomUrl}/${roomId}`);
+      return data;
+    } catch (error: any) {
       return false;
     }
   };

@@ -15,7 +15,6 @@ import {useFocusEffect, useNavigation} from '@react-navigation/native';
 import {IPasswordRequest} from '../types/IPasswordRequest';
 import {validatePassword} from '../helpers/validationFunctions';
 import {launchImageLibrary} from 'react-native-image-picker';
-import axios from 'axios';
 import {getApiUrl} from '../services/ApiService';
 import RNFetchBlob from 'rn-fetch-blob';
 import {IUserTokens} from '../types/IUserTokens';

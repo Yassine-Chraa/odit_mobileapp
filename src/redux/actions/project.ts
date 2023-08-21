@@ -1,5 +1,5 @@
 import {Dispatch} from 'react';
-import axios from 'axios';
+import axios from '../../helpers/axiosConfig';
 import {getApiUrl} from '../../services/ApiService';
 import Toast from 'react-native-toast-message';
 import {IProject} from '../../types/IProject';
@@ -20,7 +20,7 @@ export const getProjectsAction =
     } catch (error: any) {
       Toast.show({
         type: 'error',
-        text1: `something went wrong !`,
+        text1: 'something went wrong !',
         position: 'top',
       });
     }
