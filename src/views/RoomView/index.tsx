@@ -11,7 +11,6 @@ const RoomView = ({ navigation }: any): JSX.Element => {
     const { id, rooms } = useSelector(
         (state: { project: IProject }) => state.project,
     );
-
     return (
         <MainScreen options={{ showHeader: false, title: "islamic center cms" }}>
             <View style={{ marginTop: 32 }}>
@@ -21,7 +20,7 @@ const RoomView = ({ navigation }: any): JSX.Element => {
                 />
                 <View style={{ marginBottom: 20, marginTop: -4 }}>
                     {rooms?.map((room: IRoom, index: number) => (
-                        <RoomCard key={index} id={room.id} name={room.name!} members={room.members!} />
+                        <RoomCard key={index} index={index} id={room.id} name={room.name!} members={room.members!} />
                     ))}
                 </View>
             </View>

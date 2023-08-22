@@ -1,7 +1,7 @@
-import { Text, View, ScrollView, FlatList, TouchableOpacity, Dimensions } from "react-native"
+import { Text, View, FlatList, TouchableOpacity, Dimensions } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
-import { getColors, getFontSize } from "../../style/theme/globalTheme";
+import { getColors } from "../../style/theme/globalTheme";
 import AddSth from "../../components/main/AddSth";
 import RoomMemberCard from "../../components/Room/RoomMembersCard";
 import TaskForm from "../../components/Task/TaskForm";
@@ -14,16 +14,19 @@ import TaskCard from "../../components/Task/TaskCard";
 import CustomTextInput from "../../components/auth/CustomTextInput";
 import profileStyles from "../../style/profileStyles";
 import Toast from "react-native-toast-message";
+import { useSelector } from "react-redux";
+import { IProject } from "../../types/IProject";
 
 const RoomDetails = ({ navigation, route }: any): JSX.Element => {
     const { secondaryTextColor, surfaceColor, primaryTextColor, largeTextColor } = getColors()
-    const { room } = route.params
+    const { index, room } = route.params;
+    const members = useSelector((state: { project: IProject }) => state.project.rooms![index].members)
     const width = Dimensions.get('screen').width - 96;
+
     const { sections, showForm, showSectionForm, getSections, sectionRequest, setShowSectionForm, createSection, setSectionRequest, setShowForm } = useSectionController()
     useEffect(() => {
         getSections(room.id)
     }, [room.id, showForm])
-
     return (
         <MainScreen options={{
             showHeader: false,
@@ -33,11 +36,11 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                 <View style={{ marginTop: 20 }}>
                     <AddSth
                         sentence="Add new member"
-                        onPress={() => { navigation.navigate("RoomMembers", { roomId: room?.id,roomMembers:room?.members}) }}
+                        onPress={() => { navigation.navigate("RoomMembers", { roomId: room?.id, roomMembers: room?.members, index, roomName: room.name }) }}
                     />
                 </View>
                 <View style={{ marginTop: -4, paddingBottom: 20 }}>
-                    <RoomMemberCard members={room.members} />
+                    {members && <RoomMemberCard members={room.members ? [...members, ...room.members] : members} />}
                 </View>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
@@ -97,7 +100,7 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                     }
                 }}
             >
-                <TaskForm sections={sections} roomId={room.id} setShowForm={setShowForm} />
+                <TaskForm sections={sections} roomId={room.id!} setShowForm={setShowForm} />
                 <Toast />
             </Modal>
             <Modal
@@ -120,7 +123,7 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                         >Close</Text>
                         <Text
                             style={[profileStyles.mediumText, { color: secondaryTextColor }]}
-                            onPress={() => createSection(room.id)}
+                            onPress={() => createSection(room.id!)}
                         >Save</Text>
                     </View>
                 </View>

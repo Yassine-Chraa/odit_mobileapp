@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { useCallback, useEffect } from 'react'
 import { Text, View } from "react-native"
 import MainScreen from "../../components/main/MainScreen";
 import globalStyles from "../../style";
@@ -9,6 +9,7 @@ import TaskCard from "../../components/Task/TaskCard";
 import RoomCard from "../../components/Room/RoomCard";
 import useProjectController from "../../viewcontrollers/useProjectController";
 import profileStyles from '../../style/profileStyles';
+import { useFocusEffect } from '@react-navigation/native';
 
 const ProjectDetails = ({ navigation, route }: any) => {
     const { largeTextColor, surfaceColor } = getColors();
@@ -17,6 +18,9 @@ const ProjectDetails = ({ navigation, route }: any) => {
     useEffect(() => {
         getProject(projectId)
     }, [projectId])
+    useFocusEffect(useCallback(() => {
+        getProject(projectId)
+    }, [projectId]))
     return (
         <MainScreen options={{ showHeader: false, title: project.title }} backPath='Home'>
             <ProjectCard
@@ -38,7 +42,7 @@ const ProjectDetails = ({ navigation, route }: any) => {
                     {
                         project.rooms?.slice(0, 2).map((room, index) => {
                             return (
-                                <RoomCard key={index} id={room.id} name={room.name!} members={room.members!} />
+                                <RoomCard key={index} id={room.id} name={room.name!} members={room.members!} index={index} />
                             )
                         })
                     }
@@ -46,12 +50,12 @@ const ProjectDetails = ({ navigation, route }: any) => {
                 <View style={{ marginTop: 16 }}>
                     <View style={[globalStyles.sectionHeader]}>
                         <Text style={[globalStyles.sectionTitle, { color: largeTextColor }]}>project tasks</Text>
-                        <NavigateTo action={() => navigation.navigate('Tasks',{projectName:project.title ,tasks:project.tasks})} />
+                        <NavigateTo action={() => navigation.navigate('Tasks', { projectName: project.title, tasks: project.tasks })} />
                     </View>
                     {project.tasks?.length != 0 ?
                         <View style={[globalStyles.card, { backgroundColor: surfaceColor }]}>
                             {
-                                project.tasks?.slice(0,3).map((task, index) => (
+                                project.tasks?.slice(0, 3).map((task, index) => (
                                     <TaskCard key={index} navigation={navigation} task={task} />
                                 ))
                             }

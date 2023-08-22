@@ -94,7 +94,6 @@ export const sendInvitationAction =
   (projectId: number, userEmail: string) =>
   async (dispatch: Dispatch<DispatchType<String>>) => {
     try {
-      console.log(projectId);
       axios.post(`${invitationUrl}`, {
         projectId,
         userEmail,

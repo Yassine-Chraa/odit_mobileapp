@@ -95,7 +95,7 @@ const useProfileController: (
             },
           ],
         );
-        console.log(JSON.parse(data).url);
+
         return JSON.parse(data).url;
       } catch (e) {
         console.log(e);
