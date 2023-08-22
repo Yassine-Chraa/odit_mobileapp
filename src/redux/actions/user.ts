@@ -28,7 +28,6 @@ export const updateProfileAction =
     >,
   ) => {
     try {
-      console.log(updateRequest)
       const {data} = await axios.put(`${usersUrl}/profile`, updateRequest);
       const {access_token} = data;
       axios.defaults.headers.common['authorization'] = `Bearer ${access_token}`;

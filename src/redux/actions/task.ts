@@ -15,7 +15,6 @@ export const getSectionsAction =
     try {
       const {data} = await axios.get(`${sectionUrl}?roomId=${roomId}`);
       dispatch({type: 'Get Sections', payload: data});
-      console.log(data);
     } catch (error: any) {
       Toast.show({
         type: 'error',
@@ -29,7 +28,6 @@ export const createSectionAction =
   (section: ISection) =>
   async (dispatch: Dispatch<DispatchType<ISection[]>>) => {
     try {
-      console.log(section);
       const {data} = await axios.post(`${sectionUrl}`, section);
       dispatch({type: `Add Section`, payload: data});
       Toast.show({
@@ -52,9 +50,7 @@ export const createTaskAction =
   (task: ITask, roomId: number) =>
   async (dispatch: Dispatch<DispatchType<ISection[]>>) => {
     try {
-      console.log(roomId);
       const {data} = await axios.post(`${taskUrl}?roomId=${roomId}`, task);
-      console.log(data);
       Toast.show({
         type: 'success',
         text1: 'Task created successfully',

@@ -1,15 +1,17 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useCallback} from 'react';
 import Toast from 'react-native-toast-message';
 import {useDispatch, useSelector} from 'react-redux';
 import {IRoom} from '../types/IRoom';
-import {useNavigation} from '@react-navigation/native';
-import {addMemberAction, createRoomAction, getRoomAction} from '../redux/actions/room';
+import {useFocusEffect, useNavigation} from '@react-navigation/native';
+import {addMemberAction, createRoomAction} from '../redux/actions/room';
 import {IProject} from '../types/IProject';
 import {IRoomMember} from '../types/IRoomMember';
+import {IMember} from '../types/IMember';
 
 const useRoomController: (
-  type?: 'RoomMembers' | 'default',
+  type?: 'RoomMembers' | 'default' | 'RoomDetails',
   roomMembers?: IRoomMember[],
+  index?: number,
 ) => any = (type = 'default', roomMembers = []) => {
   const dispatch: any = useDispatch();
   const navigation: any = useNavigation();
@@ -87,7 +89,7 @@ const useRoomController: (
       });
       return temp;
     });
-    const [selectedMembers, setSelectedMembers] = useState<number[]>([]);
+    const [selectedMembers, setSelectedMembers] = useState<IMember[]>([]);
 
     const handleRemoveMember = (index: number) => {
       const updatedMembers = [...selectedMembers];
@@ -95,25 +97,36 @@ const useRoomController: (
       setSelectedMembers(updatedMembers);
     };
 
-    const addMembers = async (roomId: number) => {
+    const addMembers = async (
+      roomId: number,
+      roomName: string,
+      index: number,
+    ) => {
       console.log(selectedMembers);
-      const res = await dispatch(getRoomAction(roomId))
-      console.log(res)
-      if(selectedMembers.length <= 0){
+      if (selectedMembers.length <= 0) {
         Toast.show({
           type: 'success',
           text1: 'Select a member!',
           position: 'top',
         });
-      }else{
+      } else {
         try {
-          selectedMembers.forEach(async member => {
-            const res = await dispatch(addMemberAction(roomId, member));
-            if (!res) throw 'something went wrong !';
+          const members = [];
+          for (let i = 0; i < selectedMembers.length; i++) {
+            const res = await dispatch(
+              addMemberAction(roomId, selectedMembers[i].id),
+            );
+            const {firstName, lastName} = selectedMembers[i];
+            members.push({...res, firstName, lastName});
+            if (!res) {
+              throw 'something went wrong !';
+            }
+          }
+          navigation.navigate('RoomDetails', {
+            index,
+            room: {id: roomId, name: roomName, members},
           });
-          const res = await dispatch(getRoomAction(roomId))
-          console.log(res)
-         navigation.navigate('RoomDetails',{room:res})
+
           Toast.show({
             type: 'success',
             text1: 'Members added to the room successfully',
@@ -127,7 +140,6 @@ const useRoomController: (
           });
         }
       }
-      
     };
     return {
       members,

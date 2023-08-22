@@ -22,7 +22,7 @@ const NotificationItem: React.FC<{ notification: Invite }> = ({ notification }) 
       size="small"
       rounded
         title={getInitialsFromEmail(notification.userEmail)}
-      onPress={() => console.log("Works!")}
+      onPress={() => {}}
       activeOpacity={0.4}
       source={{
     uri:

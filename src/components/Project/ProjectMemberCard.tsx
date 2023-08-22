@@ -18,7 +18,7 @@ const ProjectMemberCard: React.FC<ProjectMemberCardProps> = ({ members }) => {
         <View key={index} style={[roomStyles.memberContainer]}>
           <View style={[roomStyles.memberRow, { borderBottomColor: borderColor }]}>
             <Image source={{ uri: defaultUserPicture }} style={roomStyles.memberPicture} />
-            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{'ahmed'}</Text>
+            <Text style={[roomStyles.memberName, { color: largeTextColor }]}>{member.firstName+ ' '+member.lastName}</Text>
           </View>
         </View>
       ))}
