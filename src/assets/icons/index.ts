@@ -65,6 +65,14 @@ const icons = (darkMode: boolean = false) => {
 </svg> 
 `;
 
+  const close = `
+<svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.5 0.5L12.5 12.5M0.5 12.5L12.5 0.5" stroke="${
+    darkMode ? '#EBE8E6' : '#351900'
+  }"/>
+</svg> 
+`;
+
   const homeFocused = `
 <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 56 56" fill="none">
 <circle cx="28" cy="28" r="28" fill="#FADC3D"/>
@@ -117,6 +125,7 @@ const icons = (darkMode: boolean = false) => {
     save,
     date,
     check,
+    close,
     arrowLeft,
     arrowRight,
     rightSmall,

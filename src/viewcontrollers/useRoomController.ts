@@ -17,28 +17,6 @@ const useRoomController: (
   const navigation: any = useNavigation();
   if (type == 'default') {
     const [roomRequest, setRoomRequest] = useState<IRoom>({});
-    const [member, setMember] = useState('');
-    const [members, setMembers] = useState<string[]>([]);
-
-    const addMember = () => {
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(member)) {
-        Toast.show({
-          type: 'error',
-          text1: 'Enter a Valid Email',
-          position: 'top',
-        });
-        return;
-      }
-      setMembers([...members, member]);
-      setMember('');
-    };
-
-    const handleRemoveMember = (index: number) => {
-      const updatedMembers = [...members];
-      updatedMembers.splice(index, 1);
-      setMembers(updatedMembers);
-    };
 
     const createRoom = async (projectId: number) => {
       if (!roomRequest.description || !roomRequest.name) {
@@ -53,12 +31,6 @@ const useRoomController: (
         );
         console.log(data);
         if (data) {
-          members.forEach(async member => {
-            //Todo get memberid by email
-            //add member to room
-            //const res = await dispatch(sendInvitationAction(data.id, member));
-            //if (!res) throw 'error';
-          });
           navigation.navigate('Rooms');
           setRoomRequest({});
         }
@@ -68,28 +40,45 @@ const useRoomController: (
     useEffect(() => {}, []);
 
     return {
-      member,
-      members,
       roomRequest,
-      addMember,
-      setMember,
       setRoomRequest,
-      handleRemoveMember,
       createRoom,
     };
   }
   if (type == 'RoomMembers') {
+    const [selectedMembers, setSelectedMembers] = useState<IMember[]>([]);
+    const [members, setMembers] = useState<IMember[]>([]);
+    const [key, setKey] = useState('');
+    const [showClose, setShowClose] = useState(false);
+
     const projectMembers = useSelector(
       (state: {project: IProject}) => state.project.members,
     );
-
-    const members = projectMembers?.filter(member => {
+    const _members = projectMembers?.filter(member => {
       const temp = !roomMembers.find(roomMember => {
         return roomMember.memberId == member.id;
       });
       return temp;
     });
-    const [selectedMembers, setSelectedMembers] = useState<IMember[]>([]);
+    const search = () => {
+      console.log('search...');
+      const _members = members?.filter(member => {
+        const fullName = member.firstName + ' ' + member.lastName;
+        const regex = new RegExp(key, 'i');
+
+        return regex.test(fullName);
+      });
+
+      if (_members) {
+        setMembers(_members);
+        setShowClose(true);
+      }
+    };
+    const clear = () => {
+      if (_members) setMembers(_members);
+      setKey('');
+      setShowClose(false);
+    };
 
     const handleRemoveMember = (index: number) => {
       const updatedMembers = [...selectedMembers];
@@ -125,6 +114,7 @@ const useRoomController: (
           navigation.navigate('RoomDetails', {
             index,
             room: {id: roomId, name: roomName, members},
+            type: 'AddMembers',
           });
 
           Toast.show({
@@ -133,6 +123,7 @@ const useRoomController: (
             position: 'top',
           });
         } catch (error) {
+          console.log(error);
           Toast.show({
             type: 'error',
             text1: `something went wrong !`,
@@ -141,11 +132,24 @@ const useRoomController: (
         }
       }
     };
+
+    useEffect(() => {
+      if (_members) setMembers(_members);
+    }, []);
+
+    useEffect(() => {
+      if (showClose) setShowClose(false);
+    }, [key]);
     return {
       members,
+      showClose,
       setSelectedMembers,
       handleRemoveMember,
       addMembers,
+      search,
+      key,
+      setKey,
+      clear,
     };
   }
 };

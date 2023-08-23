@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import roomStyles from '../../style/roomStyles';
-import { getColors } from '../../style/theme/globalTheme';
+import { getColors, getFontSize } from '../../style/theme/globalTheme';
 import globalStyles from '../../style';
 import { defaultUserPicture } from '../../data/default';
 import { IRoomMember } from '../../types/IRoomMember';
 import { IMember } from '../../types/IMember';
 import CustomIcon from '../main/CustomIcon';
 import RoomMember from './RoomMember';
+import profileStyles from '../../style/profileStyles';
 
 interface RoomCardProps {
   members: IRoomMember[] | IMember[];
@@ -26,7 +27,7 @@ const RoomMemberCard: React.FC<RoomCardProps> = ({ members, type = 'default', se
         <View style={roomStyles.header}>
           <Text style={[roomStyles.title, { color: secondaryTextColor }]}>All Members</Text>
         </View>
-        {members && members?.map((member, index) => {
+        {members && members.length > 0 ? members?.map((member, index) => {
           return <RoomMember
             key={index}
             members={members}
@@ -34,7 +35,9 @@ const RoomMemberCard: React.FC<RoomCardProps> = ({ members, type = 'default', se
             index={index}
             setSelectedMembers={setSelectedMembers}
             handleRemoveMember={handleRemoveMember} />
-        })}
+        }) : (
+          <Text style={[profileStyles.SemiBoldText, { marginTop: 32, fontSize: getFontSize('h4'), textAlign: 'center' }]}>Member Not Found</Text>
+        )}
       </View>
     );
   } else {
