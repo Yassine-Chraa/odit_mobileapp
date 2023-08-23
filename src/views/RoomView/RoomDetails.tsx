@@ -19,7 +19,7 @@ import { IProject } from "../../types/IProject";
 
 const RoomDetails = ({ navigation, route }: any): JSX.Element => {
     const { secondaryTextColor, surfaceColor, primaryTextColor, largeTextColor } = getColors()
-    const { index, room } = route.params;
+    const { index, room,type } = route.params;
     const members = useSelector((state: { project: IProject }) => state.project.rooms![index].members)
     const width = Dimensions.get('screen').width - 96;
 
@@ -40,7 +40,7 @@ const RoomDetails = ({ navigation, route }: any): JSX.Element => {
                     />
                 </View>
                 <View style={{ marginTop: -4, paddingBottom: 20 }}>
-                    {members && <RoomMemberCard members={room.members ? [...members, ...room.members] : members} />}
+                    {members && <RoomMemberCard members={type == 'AddMembers' ? [...members, ...room.members] : room.members} />}
                 </View>
                 <View style={{ marginTop: 20 }}>
                     <AddSth
